@@ -1,0 +1,12 @@
+<template>
+  <div>
+    <h2>找不到页面</h2>
+  </div>
+</template>
+
+<script>
+export default {}
+</script>
+
+<style>
+</style>

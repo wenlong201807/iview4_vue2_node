@@ -1,0 +1,12 @@
+.test {
+  color: red;
+}
+
+.tableMargin{
+  margin: 15px 0;
+}
+
+.okCancelBtnWrapCla {
+  display: flex;
+  justify-content: center;
+}
