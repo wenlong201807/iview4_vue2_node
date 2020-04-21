@@ -12,7 +12,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/cors': {
-        target: 'http://192.168.1.104:8086',
+        target: 'http://192.168.43.148:8086',
+        // target: 'http://192.168.1.104:8086',
         changeOrigin: true,
         pathRewrite: {
           '/cors': ''
