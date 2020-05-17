@@ -7,7 +7,7 @@
       <Col offset=3 span="8">
       <Input v-model.trim="searchValue">
       <Select v-model="searchItem" slot="prepend" style="width: 90px">
-        <Option value="name">姓名</Option>
+        <Option value="tableName">姓名</Option>
         <Option value="phone">手机号</Option>
         <Option value="sex">性别[0/1]</Option>
       </Select>
@@ -83,12 +83,12 @@ export default {
     }
     return {
       searchState: {
-        name: '姓名',
+        tableName: '姓名',
         phone: '手机号',
         sex: '性别'
       },
       searchBtn: '查询',
-      searchItem: 'name',
+      searchItem: 'tableName',
       searchValue: '',
       addModel: false,
       updateModel: false,
@@ -132,7 +132,7 @@ export default {
         {
           title: '姓名',
           width: 160,
-          key: 'name'
+          key: 'tableName'
         },
         {
           title: '手机号',
@@ -168,7 +168,7 @@ export default {
                     click: () => {
                       this.updateModel = true
                       this.currentId = params.row.id
-                      this.formValidate.name = params.row.name
+                      this.formValidate.name = params.row.tableName
                       this.formValidate.phone = params.row.phone
                       this.formValidate.sex = params.row.sex
                       // this.$router.push({name: 'task_detail', params: {id: '1'}}) /// 只能用 name/
@@ -230,7 +230,7 @@ export default {
   },
   created() {
     this.initGet()
-    // this.testGet()
+    this.testGet()
   },
   methods: {
     testGet() {
@@ -302,7 +302,7 @@ export default {
       this.$refs[name].validate(valid => {
         if (valid) {
           let params = {
-            name: this.formValidate.name,
+            tableName: this.formValidate.name,
             phone: this.formValidate.phone,
             sex: this.formValidate.sex
           }
@@ -363,7 +363,7 @@ export default {
 </script>
 
 <style scoped>
-@import '../libs/styles/common.css';
+@import '../../libs/styles/common.css';
 .tfbtnCla {
   margin: 10px auto;
   width: 120px;

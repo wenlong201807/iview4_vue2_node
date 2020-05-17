@@ -3,11 +3,20 @@
     <div class="mainContainer">
       <div class="menuCla">
         <!-- <h1 class="test">首页home</h1> -->
-        <Menu theme="primary" :open-names="['1-1']" accordion>
+        <Menu theme="primary" :open-names="['1-0']" accordion>
+          <Submenu name="1-0">
+            <template slot="title">
+              <Icon type="ios-people" />
+              实现功能的
+            </template>
+            <MenuItem to="/home/table" name="0-1">增删改查</MenuItem>
+            <MenuItem to="/home/calculate" name="0-2">计算器</MenuItem>
+            <MenuItem to="/home/definedData" name="0-3">自定义数据</MenuItem>
+          </Submenu>
           <Submenu name="1-1">
             <template slot="title">
               <Icon type="ios-paper" />
-              敏感数据扫描平台
+              我的增删改查
             </template>
             <MenuItem to="/home/task_list" name="1-1">任务列表</MenuItem>
             <!-- <MenuItem to="/home/task_detail" name="1-1-1"
@@ -19,16 +28,16 @@
             <MenuItem to="/home/statics" name="1-2">扫描统计</MenuItem>
             <MenuItem to="/home/users" name="1-3">用户管理</MenuItem>
           </Submenu>
-          <!-- <Submenu name="2">
+          <Submenu name="1-2">
             <template slot="title">
               <Icon type="ios-people" />
               用户管理
             </template>
             <MenuItem name="2-1">新增用户</MenuItem>
             <MenuItem name="2-2">活跃用户</MenuItem>
-          </Submenu> -->
+          </Submenu>
 
-          <!-- <Submenu name="3">
+          <Submenu name="1-3">
             <template slot="title">
               <Icon type="ios-stats" />
               统计分析
@@ -42,7 +51,7 @@
               <MenuItem name="3-4">用户留存</MenuItem>
               <MenuItem name="3-5">流失用户</MenuItem>
             </MenuGroup>
-          </Submenu> -->
+          </Submenu>
         </Menu>
       </div>
       <div class="contentCla">

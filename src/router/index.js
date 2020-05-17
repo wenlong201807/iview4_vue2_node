@@ -14,21 +14,45 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/bb1',
-      name: 'task_list2',
-      redirect: '/task_list',
-      component: () => import('@/views/sdsp'),
+      path: '/home',
+      name: 'home',
+      // redirect: '/home/aa',
+      component: () => import('@/views/home'),
       children: [
-        // {
-        //   path: 'users',
-        //   name: 'users',
-        //   component: () => import('@/views/sdsp/users')
-        // },
-        // {
-        //   path: 'statics',
-        //   name: 'statics',
-        //   component: () => import('@/views/sdsp/statics')
-        // },
+        {
+          path: 'aa',
+          name: 'home',
+          component: () => import('@/views/home'),
+          meta: { title: '首页', other: 'home' }
+        },
+        {
+          path: 'table',
+          name: 'table',
+          component: () => import('@/views/prod/table'),
+          meta: { title: '表格练习', other: 'table' }
+        },
+        {
+          path: 'calculate',
+          name: 'calculate',
+          component: () => import('@/views/prod/calculate'),
+          meta: { title: '表格练习', other: 'calculate' }
+        },
+        {
+          path: 'definedData',
+          name: 'sdsp',
+          component: () => import('@/views/prod/sdsp'),
+          meta: { title: '我的自定义数据', other: 'a' }
+        },
+        {
+          path: 'users',
+          name: 'users',
+          component: () => import('@/views/sdsp/users')
+        },
+        {
+          path: 'statics',
+          name: 'statics',
+          component: () => import('@/views/sdsp/statics')
+        },
         {
           path: 'task_list',
           name: 'task_list',
@@ -46,37 +70,6 @@ export default new Router({
         }
       ]
     },
-    // {
-    //   path: '/ss',
-    //   name: 'sdsp',
-    //   component: () => import('@/views/sdsp'),
-    //   meta: { title: '敏感数据扫描', other: 'a' }
-    // },
-    {
-      path: '/users',
-      name: 'users',
-      component: () => import('@/views/sdsp/users')
-    },
-    {
-      path: '/statics',
-      name: 'statics',
-      component: () => import('@/views/sdsp/statics')
-    },
-    {
-      path: '/task_list',
-      name: 'task_list1',
-      component: () => import('@/views/sdsp/task_list')
-    },
-    {
-      path: '/task_detail',
-      name: 'task_detail1',
-      component: () => import('@/views/sdsp/task_detail')
-    },
-    {
-      path: '/data_sample',
-      name: 'data_sample1',
-      component: () => import('@/views/sdsp/data_sample')
-    },
     {
       path: '/regist',
       name: 'regist',
@@ -84,16 +77,10 @@ export default new Router({
       meta: { title: '注册', other: 'a' }
     },
     {
-      path: '/',
-      name: 'table',
-      component: () => import('@/views/table'),
-      meta: { title: '表格练习', other: 'table' }
-    },
-    {
-      path: '/aa',
+      path: '/login',
       name: 'login',
       component: () => import('@/views/login'),
-      meta: { title: '登录', other: 'a' }
+      meta: { title: '登录', other: 'myLogin' }
     },
     {
       path: '*',

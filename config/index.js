@@ -13,7 +13,8 @@ module.exports = {
     proxyTable: {
       '/cors': {
         target: 'http://192.168.43.148:8086',
-        // target: 'http://192.168.1.104:8086',
+        // target: 'http://192.168.1.103:8086',
+        // target: 'http://localhost:8086',
         changeOrigin: true,
         pathRewrite: {
           '/cors': ''
