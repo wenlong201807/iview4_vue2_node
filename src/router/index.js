@@ -14,16 +14,22 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/',
+      name: '/=login',
+      redirect: '/login',
+      component: () => import('@/views/login')
+    },
+    {
       path: '/home',
       name: 'home',
-      // redirect: '/home/aa',
+      redirect: '/home/main',
       component: () => import('@/views/home'),
       children: [
         {
-          path: 'aa',
-          name: 'home',
-          component: () => import('@/views/home'),
-          meta: { title: '首页', other: 'home' }
+          path: 'main',
+          name: 'main',
+          component: () => import('@/views/main'),
+          meta: { title: '主页', other: 'main' }
         },
         {
           path: 'table',
@@ -36,6 +42,80 @@ export default new Router({
           name: 'calculate',
           component: () => import('@/views/prod/calculate'),
           meta: { title: '表格练习', other: 'calculate' }
+        },
+        // echarts
+        {
+          path: 'bar_ring',
+          name: 'bar_ring',
+          component: () => import('@/views/echarts/bar_ring'),
+          meta: { title: '柱状图和环形', other: 'bar_ring' }
+        },
+        {
+          path: 'shanxing',
+          name: 'shanxing',
+          component: () => import('@/views/echarts/shanxing'),
+          meta: { title: '扇形形', other: 'shanxing' }
+        },
+        {
+          path: 'echart1',
+          name: 'echart1',
+          component: () => import('@/views/echarts/echart1'),
+          meta: { title: '扇形形', other: 'echart1' }
+        },
+        {
+          path: 'echart2',
+          name: 'echart2',
+          component: () => import('@/views/echarts/echart2'),
+          meta: { title: '扇形形', other: 'echart2' }
+        },
+        {
+          path: 'echart3',
+          name: 'echart3',
+          component: () => import('@/views/echarts/echart3'),
+          meta: { title: '扇形形', other: 'echart3' }
+        },
+        {
+          path: 'echart4',
+          name: 'echart4',
+          component: () => import('@/views/echarts/echart4'),
+          meta: { title: '扇形形', other: 'echart4' }
+        },
+        {
+          path: 'echart5',
+          name: 'echart5',
+          component: () => import('@/views/echarts/echart5'),
+          meta: { title: '扇形形', other: 'echart5' }
+        },
+        {
+          path: 'echartAll',
+          name: 'echartAll',
+          component: () => import('@/views/echarts/echartAll'),
+          meta: { title: '扇形形', other: 'echartAll' }
+        },
+        {
+          path: 'pro_echarts',
+          name: 'pro_echarts',
+          component: () => import('@/views/echarts/pro_echarts'),
+          meta: { title: '扇形形', other: 'pro_echarts' }
+        },
+        {
+          path: 'VueLazyComponent',
+          name: 'VueLazyComponent',
+          component: () => import('@/views/echarts/VueLazyComponent'),
+          meta: { title: '交叉监听', other: 'VueLazyComponent' }
+        },
+        // 原有功能
+        {
+          path: 'Hightlight',
+          name: 'Hightlight',
+          component: () => import('@/views/Hightlight'),
+          meta: { title: '柱状图和环形', other: 'bar_ring2' }
+        },
+        {
+          path: 'TreeContexMenu',
+          name: 'TreeContexMenu',
+          component: () => import('@/views/treeContextMenu'),
+          meta: { title: '柱状图和环形', other: 'bar_ring3' }
         },
         {
           path: 'definedData',

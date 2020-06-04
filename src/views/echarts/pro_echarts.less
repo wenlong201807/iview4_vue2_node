@@ -1,0 +1,211 @@
+.staticEchartContainer {
+  // background-color: yellowgreen;
+  background-color: rgba(245, 247, 249, 1);
+  overflow: hidden;
+  min-width: 900px;
+  // height: 500px;
+
+  // 第一组。标题
+  .barRingTitleWrap {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16;
+    height: 40px;
+    // line-height: 56px;
+    margin-bottom: 5px;
+    background: #fff;
+    border-radius: 5px;
+    padding: 0 20px;
+    .taskResourceTitle {
+      padding-top: 4px;
+      font-family: "Microsoft Tai Le Bold", "Microsoft Tai Le Regular",
+        "Microsoft Tai Le";
+      font-weight: 700;
+      width: 200px;
+      // background: pink;
+      font-style: normal;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.847058823529412);
+      text-align: left;
+    }
+    .btnCompWrap {
+      // height: 34px;
+      // line-height: 34px;
+    }
+  }
+
+  // 第一组。图形
+  .barRingWrap {
+    // padding: 0 20px;
+    height: 340px;
+    width: 100%;
+    border-radius: 3px;
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    .barCla {
+      width: calc(60% - 15px);
+      margin-right: 15px;
+      background: #fff;
+    }
+    .ringCla {
+      width: 40%;
+      background: #fff;
+      // margin-right: 15px;
+    }
+  }
+
+  // 第二组
+  .brokenWrap {
+    display: flex;
+    justify-content: space-between;
+    // padding-top: 16;
+    overflow: hidden;
+    height: 50px;
+    // line-height: 56px;
+    margin-bottom: 5px;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px 20px 6px;
+    .taskResourceTitle {
+      padding-top: 4px;
+      font-family: "Microsoft Tai Le Bold", "Microsoft Tai Le Regular",
+        "Microsoft Tai Le";
+      font-weight: 700;
+      width: 200px;
+      // background: pink;
+      font-style: normal;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.847058823529412);
+      text-align: left;
+    }
+    .btnCompWrap {
+      // height: 34px;
+      // line-height: 34px;
+    }
+  }
+  .brokenGraphWrap {
+    // height: 440px;
+    width: 100%;
+    // flex-wrap: wrap;
+    // background: rgb(205, 50, 84);
+    // display: flex;
+    // justify-content: space-around;
+    .brokenTotalCla {
+      height: 90px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background: #fff;
+      .newTarget {
+        width: 160px;
+        margin: 0 auto;
+        text-align: center;
+        // flex-direction: column;
+        .totalType {
+          height: 30px;
+          background: yellow;
+        }
+        .totalNum {
+          height: 30px;
+          background: rgb(111, 0, 255);
+        }
+      }
+    }
+    .brokenGraphCla {
+      width: 100%;
+      height: 340px;
+      margin-bottom: 20px;
+      // background: burlywood;
+      background: #fff;
+    }
+  }
+
+  // 第三组
+  .jobDomainWrap {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+
+    // background: pink;
+    background-color: rgba(245, 247, 249, 1);
+    // background: #fff;
+    .jobWrap {
+      width: calc(60% - 15px);
+      margin-right: 15px;
+      // background: #fff;
+      // padding: 0px 20px;
+    }
+    .domainWrap {
+      width: 40%;
+      // background: #fff;
+      // padding: 0px 20px;
+      // margin-right: 15px;
+    }
+
+    // 标题和图形的关系
+    .titleWrap {
+      height: 50px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      // padding-top: 16;
+      // height: 40px;
+      // line-height: 56px;
+      // margin-bottom: 5px;
+      background: #fff;
+      border-radius: 5px;
+      // padding: 0 20px;
+
+      .taskResourceTitle {
+        padding-top: 4px;
+        font-family: "Microsoft Tai Le Bold", "Microsoft Tai Le Regular",
+          "Microsoft Tai Le";
+        font-weight: 700;
+        width: 130px;
+        background: pink;
+        // background: pink;
+        font-style: normal;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.847058823529412);
+        text-align: left;
+      }
+      .btnCompWrap{
+        // display: flex;
+      }
+    }
+    .graphWrapRight{
+      margin-top: 20px;
+      height: 340PX;
+      width: 100%;
+      flex-wrap: wrap;
+      // background: grey;
+      background: #fff;
+      overflow-x: auto;
+      overflow-y: auto;
+      display: flex;
+      justify-content: start;
+      .eachOneCla{
+        width: 25%;
+        height: 170px;
+        background: pink;
+      }
+    }
+    .graphWrapLeft{
+      margin-top: 20px;
+      height: 340PX;
+      width: 100%;
+      // background: grey;
+      background: #fff;
+    }
+  }
+
+  // 特殊样式
+  .dataRangeCla{
+    width: 180px;
+    margin-left: 10px;
+  }
+}

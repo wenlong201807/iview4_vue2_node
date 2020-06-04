@@ -43,7 +43,7 @@ export default {
       this.$refs[name].validate((valid) => {
         if (valid) {
           this.$Message.success('登录成功')
-          this.$router.push({path: '/home/task_list'})
+          this.$router.push({path: '/home/main'})
         } else {
           this.$Message.error('登录失败，请重试')
         }

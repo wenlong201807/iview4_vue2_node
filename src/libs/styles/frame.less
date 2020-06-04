@@ -1,19 +1,16 @@
 
 .mainContainer {
-  display: flex;
-  justify-content: space-between;
+  min-width: 860px;
   height: 100vh;
-  // width: 1240px;
-  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
   .menuCla {
     width: 240px;
-    // background: palegoldenrod;
+    // flex: 1 1 240px; // 菜单部分指定宽度
   }
   .contentCla {
     // width: 1200px;
-    flex: 1 1 700px;
-    // background: pink;
-    min-width: 700px;
+    flex: 6 5 700px;
     overflow-x: scroll;
     .navCla {
       // width: 1200px;
