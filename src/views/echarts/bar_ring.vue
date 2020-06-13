@@ -233,13 +233,18 @@ export default {
   background: yellow;
   display: flex;
   justify-content: space-around;
+  resize: horizontal;
   .bar {
-    flex: 3 5 500px;
+    resize: both;
+    // flex: 3 5 500px;
+    width: 60%;
     height: 450px;
     background: blueviolet;
   }
   .ring {
-    flex: 1 3 300px;
+    resize: both;
+    // flex: 1 3 300px;
+    width: 40%;
     height: 450px;
     background: bisque;
   }

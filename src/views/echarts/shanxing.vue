@@ -1,5 +1,8 @@
 <template>
   <div class="shanxingContainer" id="shanxingContainerId">
+    <DatePicker :value="value2" format="yyyy-MM-dd" type="daterange" placement="bottom-end" placeholder="Select date" style="width: 200px"></DatePicker>
+    <!-- <Date-picker :value="value2" v-model="value2" @on-change="aa($event)" format="yyyy-MMd-dd" type="daterange" placement="bottom-end" placeholder="选择日期"
+      style="width: 200px"></Date-picker> -->
     <div id="ringId" class="ring"></div>
 
   </div>
@@ -9,10 +12,41 @@ export default {
   name: 'echartContainer2',
   data() {
     return {
-      myChartRing: ''
+      myChartRing: '',
+      value2: ['2016-01-01', '2016-02-15']
     }
   },
   methods: {
+    aa(e) {
+      console.log(e)
+    },
+    // 日期时间计算
+    getBeforeDate(n) {
+      var d = new Date()
+      var year = d.getFullYear()
+      var mon = d.getMonth() + 1
+      var day = d.getDate()
+      if (day <= n) {
+        if (mon > 1) {
+          mon = mon - 1
+        } else {
+          year = year - 1
+          mon = 12
+        }
+      }
+      d.setDate(d.getDate() - n)
+      year = d.getFullYear()
+      mon = d.getMonth() + 1
+      day = d.getDate()
+      let s =
+        year +
+        '-' +
+        (mon < 10 ? '0' + mon : mon) +
+        '-' +
+        (day < 10 ? '0' + day : day)
+      return s
+    },
+
     drawChartRing(_this) {
       // 基于准备好的dom，初始化echarts实例
       _this.myChartRing = this.$echarts.init(document.getElementById('ringId'))
@@ -58,6 +92,8 @@ export default {
     }
   },
   mounted() {
+    console.log(this.getBeforeDate(1)) // 昨天的日期
+    console.log(this.getBeforeDate(7)) // 前七天的日期
     this.drawChartRing(this)
 
     // 交叉监听

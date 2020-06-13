@@ -169,7 +169,7 @@ export default {
           trigger: 'item', // 触发类型(饼状图片就是用这个)
           formatter: '{a} <br/>{b} : {c} ({d}%)' // 提示框浮层内容格式器
         },
-        color: ['#48cda6', '#fd87fb', '#11abff', '#ffdf6f', '#968ade'], // 手动设置每个图例的颜色
+        color: ['#48cda6', '#436EEE', '#11abff', '#ffdf6f', '#968ade'], // 手动设置每个图例的颜色
         legend: {
           // 图例组件
           right: 100, // 图例组件离右边的距离
@@ -278,7 +278,7 @@ export default {
           // text: '折线图堆叠'
         },
         tooltip: {
-          trigger: 'axis'
+          // trigger: 'axis'
         },
         legend: {
           data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
@@ -289,48 +289,48 @@ export default {
           bottom: '3%',
           containLabel: true
         },
-        toolbox: {
-          feature: {
-            saveAsImage: {}
-          }
-        },
+        // toolbox: {
+        //   feature: {
+        //     saveAsImage: {}
+        //   }
+        // },
         xAxis: {
-          type: 'category',
-          boundaryGap: false,
+          // type: 'category',
+          // boundaryGap: false,
           data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
         },
         yAxis: {
-          type: 'value'
+          // type: 'value'
         },
         series: [
           {
             name: '邮件营销',
             type: 'line',
-            stack: '总量',
+            // stack: '总量',
             data: [120, 132, 101, 134, 90, 230, 210]
           },
           {
             name: '联盟广告',
             type: 'line',
-            stack: '总量',
+            // stack: '总量',
             data: [220, 182, 191, 234, 290, 330, 310]
           },
           {
             name: '视频广告',
             type: 'line',
-            stack: '总量',
+            // stack: '总量',
             data: [150, 232, 201, 154, 190, 330, 410]
           },
           {
             name: '直接访问',
             type: 'line',
-            stack: '总量',
+            // stack: '总量',
             data: [320, 332, 301, 334, 390, 330, 320]
           },
           {
             name: '搜索引擎',
             type: 'line',
-            stack: '总量',
+            // stack: '总量',
             data: [820, 932, 901, 934, 1290, 1330, 1320]
           }
         ]
@@ -344,29 +344,29 @@ export default {
         document.getElementById('eachOneid1')
       )
       // 指定图表的配置项和数据
-      var dataArr = 44
+      var dataArr = 30
       var colorSet = {
         color: '#468EFD'
       }
       let option = {
         backgroundColor: '#fff',
         tooltip: {
-          formatter: '{a} <br/>{b} : {c}%'
+          // formatter: '{a} <br/>{b} : {c}%'
         },
 
         series: [
           {
-            name: '内部进度条',
+            name: '刻度环',
             type: 'gauge',
             // center: ['20%', '50%'],
-            radius: '40%',
+            radius: '90%',
 
-            splitNumber: 10,
+            splitNumber: 20,
             axisLine: {
               lineStyle: {
                 color: [
-                  [dataArr / 100, colorSet.color],
-                  [1, 'green']
+                  [dataArr / 100, '#468EFD'],
+                  [1, '#ccc']
                 ],
                 width: 8
               }
@@ -387,53 +387,40 @@ export default {
               formatter: function(value) {
                 if (value !== 0) {
                   var num = Math.round(value)
-                  return parseInt(num).toFixed(0) + '%'
+                  return parseInt(num).toFixed(0) + ' %'
                 } else {
                   return 0
                 }
               },
-              offsetCenter: [0, 62],
+              offsetCenter: [0, '80%'],
               textStyle: {
-                padding: [0, 0, 0, 0],
-                fontSize: 12,
-                fontWeight: '60',
-                background: 'green',
-                color: 'pink'
-                // color: colorSet.color
-              }
-            },
-            title: {
-              // 标题
-              show: true,
-              text: 'sdf',
-              offsetCenter: [0, 46], // x, y，单位px
-              textStyle: {
-                color: 'red',
-                fontSize: 12, // 表盘上的标题文字大小
-                fontWeight: 100,
-                background: 'pink',
-                fontFamily: 'PingFangSC'
+                padding: [4, 5, 3, 5],
+                fontSize: 14,
+                width: 40,
+                fontWeight: '80',
+                backgroundColor: dataArr > 20 ? 'rgba(3, 191, 22, 1)' : 'red',
+                color: '#fff'
               }
             },
             data: [
               {
-                name: 'title',
+                name: 'cup',
                 value: dataArr
               }
             ],
             pointer: {
               show: true,
-              length: '45%',
-              radius: '20%',
-              width: 3 // 指针粗细
+              length: '75%',
+              radius: '0%',
+              width: 5 // 指针粗细
             },
             animationDuration: 4000
           },
           {
-            name: '外部刻度',
+            name: '刻度数字',
             type: 'gauge',
             //  center: ['20%', '50%'],
-            radius: '50%',
+            radius: '60%',
             min: 0, // 最小刻度
             max: 100, // 最大刻度
             splitNumber: 10, // 刻度数量
@@ -448,29 +435,33 @@ export default {
             }, // 仪表盘轴线
             axisLabel: {
               show: true,
-              color: '#4d5bd1',
-              distance: 15,
+              color: '#333',
+              distance: 10,
               formatter: function(v) {
                 switch (v + '') {
                   case '0':
                     return '0'
-                  case '10':
-                    return '10'
+                  // case '10':
+                  //   return '10'
                   case '20':
                     return '20'
-                  case '30':
-                    return '30'
+                  // case '30':
+                  //   return '30'
                   case '40':
                     return '40'
-                  case '50':
-                    return '50'
+                  // case '50':
+                  //   return '50'
                   case '60':
                     return '60'
+                  case '80':
+                    return '80'
+                  case '100':
+                    return '100'
                 }
               }
             }, // 刻度标签。
             axisTick: {
-              show: true,
+              show: false,
               splitNumber: 7,
               lineStyle: {
                 color: colorSet.color, // 用颜色渐变函数不起作用
@@ -479,7 +470,7 @@ export default {
               length: -8
             }, // 刻度样式
             splitLine: {
-              show: true,
+              show: false,
               length: -20,
               lineStyle: {
                 color: colorSet.color // 用颜色渐变函数不起作用
@@ -496,10 +487,10 @@ export default {
       }
       // 使用刚指定的配置项和数据显示图表。
       this.myChartBar4.setOption(option)
-      // setInterval(() => {
-      //   option.series[0].data[0].value = (Math.random() * 100).toFixed(2) - 0
-      //   this.myChartBar4.setOption(option, true)
-      // }, 2000)
+      setInterval(() => {
+        option.series[0].data[0].value = (Math.random() * 100).toFixed(2) - 0
+        this.myChartBar4.setOption(option, true)
+      }, 2000)
     },
     drawChart5(_this) {
       // 基于准备好的dom，初始化echarts实例
@@ -568,10 +559,13 @@ export default {
       // this.drawChartRing.resize()
     }
 
-    const boxs = document.querySelector('.staticEchartContainer')
+    const boxes = document.querySelectorAll('.staticEchartContainer')
     const myObserver = new ResizeObserver(entries => {
       for (let entry of entries) {
         console.log('entry:', entry)
+        const infoE1 = entry.target.querySelector('.aa')
+        const width = Math.floor(entry.contentRect.width)
+        console.log(infoE1, width)
         this.myChartBar1.resize()
         this.myChartBar2.resize()
         this.myChartBar3.resize()
@@ -582,9 +576,9 @@ export default {
 
     // console.log(boxs)
 
-    boxs.forEach(box => {
+    boxes.forEach(box => {
       console.log(box)
-      myObserver(box)
+      myObserver.observe(box)
     })
   }
 }

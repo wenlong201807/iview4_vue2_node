@@ -1,9 +1,10 @@
-
 .mainContainer {
   min-width: 860px;
   height: 100vh;
   display: flex;
   justify-content: space-around;
+  overflow: hidden;
+
   .menuCla {
     width: 240px;
     // flex: 1 1 240px; // 菜单部分指定宽度
@@ -12,6 +13,12 @@
     // width: 1200px;
     flex: 6 5 700px;
     overflow-x: scroll;
+    // overflow-y: scroll;
+    &::-webkit-scrollbar {
+      height: 0px;
+      width: 1px;
+      background-color: #2d8cf0;
+    }
     .navCla {
       // width: 1200px;
       height: 40px;

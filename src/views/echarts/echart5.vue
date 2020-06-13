@@ -20,15 +20,33 @@ export default {
 
       // 指定图表的配置项和数据
       let option = {
-        title: {
-          // 标题组件
-          text: '各来源分布占比',
-          left: '50px', // 标题的位置 默认是left，其余还有center、right属性
-          textStyle: {
-            color: '#436EEE',
-            fontSize: 27
+        title: [
+          {
+            // 标题组件
+            text: '各来源分布占比',
+            left: '20%', // 标题的位置 默认是left，其余还有center、right属性
+            textStyle: {
+              color: '#436EEE',
+              fontSize: 27
+            }
+          },
+          {
+            text: '合计',
+            subtext: 12312 + '个',
+            textStyle: {
+              fontSize: 20,
+              color: '#ccc'
+              // color: 'black'
+            },
+            subtextStyle: {
+              fontSize: 20,
+              color: '#333333'
+            },
+            textAlign: 'center',
+            x: '34.5%',
+            y: '44%'
           }
-        },
+        ],
         tooltip: {
           // 提示框组件
           trigger: 'item', // 触发类型(饼状图片就是用这个)
@@ -52,40 +70,40 @@ export default {
             fontSize: 12 // 文字大小
           }
         },
-        graphic: [
-          {
-            // 环形图中间添加文字
-            type: 'text', // 通过不同top值可以设置上下显示
-            left: '20%',
-            top: '45%',
-            style: {
-              text: '总量',
-              textAlign: 'center',
-              fill: 'red', // 文字的颜色
-              width: 30,
-              background: 'yellow',
-              height: 30,
-              fontSize: 20,
-              fontFamily: 'Microsoft YaHei'
-            }
-          },
-          {
-            // 环形图中间添加文字
-            type: 'text', // 通过不同top值可以设置上下显示
-            left: '20%',
-            top: '49%',
-            style: {
-              text: '666',
-              // border:'1px solid ',
-              textAlign: 'center',
-              fill: 'blue', // 文字的颜色
-              // width: 30,
-              // height: 30,
-              fontSize: 20,
-              fontFamily: 'Microsoft YaHei'
-            }
-          }
-        ],
+        // graphic: [
+        //   {
+        //     // 环形图中间添加文字
+        //     type: 'text', // 通过不同top值可以设置上下显示
+        //     left: '20%',
+        //     top: '45%',
+        //     style: {
+        //       text: '总量',
+        //       textAlign: 'center',
+        //       fill: 'red', // 文字的颜色
+        //       width: 30,
+        //       background: 'yellow',
+        //       height: 30,
+        //       fontSize: 20,
+        //       fontFamily: 'Microsoft YaHei'
+        //     }
+        //   },
+        //   {
+        //     // 环形图中间添加文字
+        //     type: 'text', // 通过不同top值可以设置上下显示
+        //     left: '20%',
+        //     top: '49%',
+        //     style: {
+        //       text: '666',
+        //       // border:'1px solid ',
+        //       textAlign: 'center',
+        //       fill: 'blue', // 文字的颜色
+        //       // width: 30,
+        //       // height: 30,
+        //       fontSize: 20,
+        //       fontFamily: 'Microsoft YaHei'
+        //     }
+        //   }
+        // ],
         // ————————————————
         // 版权声明：本文为CSDN博主「风清场」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
         // 原文链接：https://blog.csdn.net/caidingnu/article/details/87880164

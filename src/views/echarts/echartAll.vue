@@ -206,9 +206,10 @@ export default {
           containLabel: true
         },
         toolbox: {
-          feature: {
-            saveAsImage: {}
-          }
+          show: false
+          // feature: {
+          //   saveAsImage: {}
+          // }
         },
         xAxis: {
           type: 'category',

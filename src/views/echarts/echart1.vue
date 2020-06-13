@@ -23,7 +23,7 @@ export default {
         // backgroundColor: 'red',
         backgroundColor: '#fff',
         tooltip: {
-          formatter: '{a} <br/>{b} : {c}%'
+          // formatter: '{a} <br/>{b} : {c}%'
         },
 
         series: [
@@ -33,9 +33,9 @@ export default {
               lineStyle: {
                 width: 2,
                 color: [
-                  [0.2, '#000000'],
-                  [0.8, 'green'],
-                  [1, 'red']
+                  [0, '#000000'],
+                  // [0.8, 'green'],
+                  [1, '#000000']
                 ]
               }
             },
@@ -79,32 +79,44 @@ export default {
               width: 3
             },
             title: {
-              offsetCenter: ['-40%', '70%']
+              offsetCenter: ['-40%', '70%'],
+              textStyle: {
+                display: 'block',
+                height: '20px',
+                width: '40px',
+                padding: [3, 3, 3, 3],
+                fontSize: 12,
+                fontWeight: '600',
+                // backgroundColor: '#aaa',
+                color: 'red'
+                // color: colorSet.color
+              }
             },
-            detail: { show: false }, // 表盘正下方的数字
-            // detail: {
-            //   formatter: function(value) {
-            //     if (value !== 0) {
-            //       var num = Math.round(value)
-            //       return parseInt(num).toFixed(0) + '%'
-            //     } else {
-            //       return 0
-            //     }
-            //   },
-            //   offsetCenter: ['-40%', '70%'],
-            //   textStyle: {
-            //     display: 'inline-block',
-            //     height: '20px',
-            //     width: '40px',
-            //     padding: [3, 3, 3, 3],
-            //     fontSize: 14,
-            //     fontWeight: '60',
-            //     background: 'green',
-            //     color: 'red'
-            //     // color: colorSet.color
-            //   }
-            // }, // 表盘正下方的数字
-            data: [{ value: 50, name: '内存 50 %' }]
+            // detail: { show: true }, // 表盘正下方的数字
+            detail: {
+              formatter: function(value) {
+                if (value !== 0) {
+                  var num = Math.round(value)
+                  return parseInt(num).toFixed(0) + '%'
+                } else {
+                  return 0
+                }
+              },
+              offsetCenter: ['0%', '70%'],
+              textStyle: {
+                display: 'block',
+                height: '20px',
+                width: '40px',
+                padding: [3, 3, 3, 3],
+                fontSize: 19,
+                fontWeight: '600',
+                backgroundColor: '#aaa',
+                color: 'red'
+                // color: colorSet.color
+              }
+            }, // 表盘正下方的数字
+            data: [{ value: 0, name: '内存' }]
+            // data: [{ value: 50, name: '内存 50 %' }]
           }
         ]
       }

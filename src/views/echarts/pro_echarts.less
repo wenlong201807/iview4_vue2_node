@@ -1,9 +1,13 @@
+// body {
+//   background-color: rgba(245, 247, 249, 1);
+// }
+
 .staticEchartContainer {
   // background-color: yellowgreen;
   background-color: rgba(245, 247, 249, 1);
-  overflow: hidden;
+  // overflow: hidden;
   min-width: 900px;
-  // height: 500px;
+  
 
   // 第一组。标题
   .barRingTitleWrap {
@@ -173,13 +177,13 @@
         color: rgba(0, 0, 0, 0.847058823529412);
         text-align: left;
       }
-      .btnCompWrap{
-        // display: flex;
-      }
+      // .btnCompWrap{
+      //   // display: flex;
+      // }
     }
-    .graphWrapRight{
+    .graphWrapRight {
       margin-top: 20px;
-      height: 340PX;
+      height: 340px;
       width: 100%;
       flex-wrap: wrap;
       // background: grey;
@@ -188,15 +192,20 @@
       overflow-y: auto;
       display: flex;
       justify-content: start;
-      .eachOneCla{
+      &::-webkit-scrollbar {
+        height: 10px;
+        width: 1px;
+        background-color: red;
+      }
+      .eachOneCla {
         width: 25%;
         height: 170px;
         background: pink;
       }
     }
-    .graphWrapLeft{
+    .graphWrapLeft {
       margin-top: 20px;
-      height: 340PX;
+      height: 340px;
       width: 100%;
       // background: grey;
       background: #fff;
@@ -204,7 +213,7 @@
   }
 
   // 特殊样式
-  .dataRangeCla{
+  .dataRangeCla {
     width: 180px;
     margin-left: 10px;
   }
