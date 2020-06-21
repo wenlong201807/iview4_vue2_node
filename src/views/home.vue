@@ -2,8 +2,8 @@
   <div>
     <div class="mainContainer">
       <div class="menuCla">
-        <!-- <h1 class="test">首页home</h1> -->
-        <Menu theme="primary" :open-names="['4-1']" accordion>
+        <!-- <h1 class="test">首页home</h1> accordion -->
+        <Menu theme="primary" :open-names="['4-1']">
           <Submenu name="1-0">
             <template slot="title">
               <Icon type="ios-people" />
