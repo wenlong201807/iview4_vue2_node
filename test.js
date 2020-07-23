@@ -137,7 +137,7 @@ function OriginArrTomiddleArr () {
   return testArr
 }
 
-console.log(OriginArrTomiddleArr())
+// console.log(OriginArrTomiddleArr())
 
 function middleArrTotargetArr (middleArr) {
   let testArr2 = []
@@ -161,4 +161,35 @@ function middleArrTotargetArr (middleArr) {
 
 // middleArrTotargetArr(OriginArrTomiddleArr())
 // console.log('====', middleArrTotargetArr(OriginArrTomiddleArr()))
-// console.log('===', middleArrTotargetArr(middleArr))
+var ages = [3, 10, 18, 20];
+
+function checkAdult () {
+  ages.some(age => age >= 18)
+
+}
+console.log('***', checkAdult())
+
+
+let aa = [
+  '朱',
+  '文',
+  '龙',
+  '吗',
+]
+
+function kk () {
+  let isEqual = aa.some(
+    item => {
+      console.log(item)
+      item == '文'
+    }
+
+  )
+  console.log(isEqual)
+}
+kk()
+const isBelowThreshold = (currentValue) => currentValue < 40;
+
+const array1 = [1, 30, 39, 29, 10, 13];
+
+console.log(array1.every(isBelowThreshold));
