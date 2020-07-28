@@ -1,13 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import HelloWorld from '@/components/HelloWorld'
-// import login from ''
-// import regist from ''
-// import home from ''
-// import not_found from ''
-// import users from
-// import statics from ''
-// import task_name from ''
 
 Vue.use(Router)
 
@@ -43,6 +35,53 @@ export default new Router({
           component: () => import('@/views/prod/calculate'),
           meta: { title: '表格练习', other: 'calculate' }
         },
+        // 基础数据预约加载
+        {
+          path: 'ruleMagt',
+          name: 'ruleMagt',
+          component: () => import('@/views/baseDataLoading/rule_magt'),
+          meta: { title: '表格练习', other: 'table' }
+        },
+        {
+          path: 'dbMagt',
+          name: 'dbMagt',
+          component: () => import('@/views/baseDataLoading/db_magt'),
+          meta: { title: '表格练习', other: 'table' }
+        },
+        {
+          path: 'aptLoad',
+          name: 'aptLoad',
+          component: () => import('@/views/baseDataLoading/apt_load'),
+          meta: { title: '表格练习', other: 'table' }
+        },
+        {
+          path: 'taskMagt',
+          name: 'taskMagt',
+          component: () => import('@/views/baseDataLoading/task_magt'),
+          meta: { title: '表格练习', other: 'table' }
+        },
+        {
+          path: 'batchWindow',
+          name: 'batchWindow',
+          component: () => import('@/views/baseDataLoading/batch_window'),
+          meta: { title: '表格练习', other: 'table' }
+        },
+        // 基础数据预约加载***待完善
+        // {
+        //   path: 'baseDB',
+        //   name: 'baseDB',
+        //   redirect: '/home/main/baseDB/ruleMagt',
+        //   component: () => import('@/views/baseDataLoading/entry'),
+        //   meta: { title: '基础数据', other: 'baseDB' },
+        //   children: [
+        //     {
+        //       path: 'ruleMagt',
+        //       name: 'ruleMagt',
+        //       component: () => import('@/views/baseDataLoading/ruleMagt'),
+        //       meta: { title: '表格练习', other: 'table' }
+        //     }
+        //   ]
+        // },
         // echarts
         {
           path: 'bar_ring',
@@ -150,6 +189,15 @@ export default new Router({
         }
       ]
     },
+    // 基础数据页面start
+
+    {
+      path: '/ruleAddAmend',
+      name: 'ruleAddAmend',
+      component: () => import('@/views/baseDataLoading/rule_magt_add_amend'),
+      meta: { title: '添加规则', other: 'a' }
+    },
+    // 基础数据页面end
     {
       path: '/regist',
       name: 'regist',

@@ -66,6 +66,17 @@
           <MenuItem to="/home/echartAll" name="4-9">echartAll混合图2</MenuItem>
           <MenuItem to="/home/pro_echarts" name="4-10">组合展示图pro</MenuItem>
         </Submenu>
+        <Submenu name="1-5">
+          <template slot="title">
+            <Icon type="ios-people" />
+            基础数据加载
+          </template>
+          <MenuItem to="/home/ruleMagt" name="5-1">规则管理</MenuItem>
+          <MenuItem to="/home/dbMagt" name="5-2">数据库管理</MenuItem>
+          <MenuItem to="/home/aptLoad" name="5-3">预约加载</MenuItem>
+          <MenuItem to="/home/taskMagt" name="5-4">任务管理</MenuItem>
+          <MenuItem to="/home/batchWindow" name="5-5">批次窗口</MenuItem>
+        </Submenu>
       </Menu>
     </div>
     <div class="contentCla">
@@ -84,7 +95,7 @@
 export default {
   data() {
     return {
-      msg: 'sffd'
+      msg: 'sffd',
     }
   },
   methods: {
@@ -93,8 +104,8 @@ export default {
     },
     aa() {
       console.log(11)
-    }
-  }
+    },
+  },
 }
 </script>
 

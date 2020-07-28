@@ -24,6 +24,7 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    "comma-dangle": [1, "never"],
     quotes: ["error", "single"],
     semi: ["error", "never"],
     "space-before-function-paren": 0,
