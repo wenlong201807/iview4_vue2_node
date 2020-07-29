@@ -32,7 +32,9 @@
     </div>
     <div class="tableWrap">
       <div class="tableHead">
-        <div class="checkBoxCla">11</div>
+        <div class="checkBoxCla">
+          <Checkbox :indeterminate="indeterminate" :value="checkAll" @click.prevent.native="handleCheckAll"></Checkbox>
+        </div>
         <div class="orderCla">序号</div>
         <div class="ruleNameCla">规则名称</div>
         <div class="decsCla">规则概述</div>
@@ -46,9 +48,11 @@
         <div class="actionHeadCla">操作</div>
       </div>
       <div class="tablebody" v-for="(item,index) in tableData" :key="item.id">
-        <div class="checkBoxCla"></div>
+        <div class="checkBoxCla">
+          <Checkbox v-model="item.isChecked" @on-change="changeItemCheckBox(item.id,item.isChecked)"></Checkbox>
+        </div>
         <div class="orderCla">{{item.id}}</div>
-        <div class="ruleNameCla">{{item.ruleName}}</div>
+        <div class="ruleNameCla ruleNameDetailCla" @click="ediCopytHandler(item,'detail')">{{item.ruleName}}</div>
         <div class="decsCla">{{item.decs}}</div>
         <div class="loadWayCla">{{item.loadWay}}</div>
         <div class="dbCla">{{item.db}}</div>
@@ -78,6 +82,9 @@ export default {
   components: { Docs },
   data() {
     return {
+      checkedArr: [],
+      checkAll: false,
+      indeterminate: false,
       curPageNum: 1,
       totalPages: 100,
       curPageSize: 10,
@@ -99,44 +106,93 @@ export default {
       tableData: [
         {
           id: 1,
+          isChecked: false,
           ruleName: '规则名称1',
           decs: '规则概述1',
           loadWay: 'sqlldr',
-          db: 'xxx',
-          tableName: 'xxx',
-          data: 'abc1.data abc1.data',
-          control: 'XXXXXXX',
-          amend: 'XXXXXXX',
-          amendTime: '2020-07-01 12:09:11',
+          db: 'xxx111',
+          tableName: 'xxx111',
+          data: 'abc1.data abc1.data111',
+          control: 'XXXXXXX111',
+          amend: 'XXXXXXX111',
+          amendTime: '2020-07-01 12:09:11111',
         },
         {
           id: 2,
+          isChecked: false,
           ruleName: '规则名称2',
           decs: '规则概述2',
           loadWay: 'sqlldr',
-          db: 'xxx',
-          tableName: 'xxx',
-          data: 'abc1.data abc1.data',
-          control: 'XXXXXXX',
-          amend: 'XXXXXXX',
-          amendTime: '2020-07-01 12:09:11',
+          db: 'xxx222',
+          tableName: 'xxx222',
+          data: 'abc1.data abc1.data222',
+          control: 'XXXXXXX222',
+          amend: 'XXXXXXX222',
+          amendTime: '2020-07-01 12:09:11222',
         },
         {
           id: 3,
+          isChecked: false,
           ruleName: '规则名称3',
           decs: '规则概述3',
           loadWay: 'sqlldr',
-          db: 'xxx',
-          tableName: 'xxx',
-          data: 'abc1.data abc1.data',
-          control: 'XXXXXXX',
-          amend: 'XXXXXXX',
-          amendTime: '2020-07-01 12:09:11',
+          db: 'xxx333',
+          tableName: 'xxx333',
+          data: 'abc1.data abc1.data333',
+          control: 'XXXXXXX333',
+          amend: 'XXXXXXX333',
+          amendTime: '2020-07-01 12:09:11333',
         },
       ],
     }
   },
+  created() {
+    const { row } = this.$route.params
+    console.log(row)
+    if (row.id !== 0) {
+      console.log('you')
+      let index = this.tableData.findIndex(item => item.id === row.id)
+      this.tableData.splice(index, 1, row)
+    } else {
+      console.log('wu')
+      let newId = Number(new Date().getTime())
+      this.tableData.push({ ...row, id: newId })
+    }
+  },
   methods: {
+    changeItemCheckBox(id, isChecked) {
+      console.log(id, isChecked)
+      if (isChecked) {
+        this.checkedArr.push(id)
+      } else {
+        let index = this.checkedArr.findIndex(ind => ind === id)
+        index > -1 && this.checkedArr.splice(index, 1)
+      }
+      let tableLen = this.tableData.length
+      let checkedArrLen = this.checkedArr.length
+      this.checkAll = checkedArrLen === tableLen
+      this.indeterminate = this.checkAll ? false : checkedArrLen !== 0
+    },
+    handleCheckAll() {
+      if (this.indeterminate) {
+        this.checkAll = false
+      } else {
+        this.checkAll = !this.checkAll
+      }
+      this.indeterminate = false
+
+      if (this.checkAll) {
+        this.tableData.forEach(item => {
+          item.isChecked = true
+          this.checkedArr.push(item.id)
+        })
+      } else {
+        this.checkedArr = []
+        this.tableData.forEach(item => {
+          item.isChecked = false
+        })
+      }
+    },
     ediCopytHandler(row, type) {
       console.log(row, type)
       this.$router.push({ name: 'ruleAddAmend', params: { row, type } }) // 只能用 name

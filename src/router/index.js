@@ -193,7 +193,9 @@ export default new Router({
 
     {
       path: '/ruleAddAmend',
+      // path: '/ruleAddAmend/:type',
       name: 'ruleAddAmend',
+      props:true,
       component: () => import('@/views/baseDataLoading/rule_magt_add_amend'),
       meta: { title: '添加规则', other: 'a' }
     },

@@ -1,5 +1,5 @@
 .ruleMagtAddAmendWrap {
-  background: pink;
+  background: rgba(242, 242, 242, 0.996078431372549);
   .topTitleCla {
     display: flex;
     padding: 0px 10px;
@@ -30,7 +30,9 @@
     }
   }
   .contentWrap {
-    padding: 20px 42px 30px 42px;
+    box-sizing: border-box;
+    min-height: calc(100vh - 40px);
+    padding: 30px 42px 30px 42px;
     background: rgba(242, 242, 242, 0.996078431372549);
     .title {
       height: 55px;
@@ -46,32 +48,52 @@
       background: #fff;
     }
     .detailContentWrap {
+      padding-top: 25px;
+      margin-bottom: 30px;
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
       align-items: space-around;
       background: #fff;
-      height: 220px;
+      // height: 220px;
       .contentItem {
         box-sizing: border-box;
-        // padding-top: 25px;
         padding-left: 25px;
         width: 50%;
-        // height: 95px;
+        padding-bottom: 25px;
         // background: pink;
-        margin-bottom: 5px;
+        margin-bottom: 1px;
         .subTitle {
-          // margin-bottom: 5px;
+          margin-bottom: 5px;
           font-family: "Microsoft Tai Le";
           font-weight: 400;
           font-style: normal;
           font-size: 14px;
           color: rgba(0, 0, 0, 0.847058823529412);
         }
+        .subTitleDesc {
+          margin-top: 10px;
+          font-size: 12px;
+          color: #aaaaaa;
+        }
+        .validateCla {
+          color: red;
+          margin-left: 10px;
+        }
         .baseInputW75 {
           width: 75%;
         }
       }
     }
+  }
+
+  .btnActionWrap {
+    width: 200px;
+    padding: 20px 0px;
+    // border: 1px solid #ccc;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-around;
+    background: rgba(242, 242, 242, 0.996078431372549);
   }
 }
