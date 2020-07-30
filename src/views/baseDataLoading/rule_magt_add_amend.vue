@@ -1,21 +1,14 @@
 <template>
   <div class="ruleMagtAddAmendWrap">
-    <div class="topTitleCla">
-      <div class="topLeftCla">
-        <Icon @click="backRuleHandler" class="titleBack" type="ios-arrow-back" />
-        <span class="titleContent">新建数据加载规则</span>
-      </div>
-      <div class="topRightCla">
-        <Icon @click="backRuleHandler" type="md-close" />
-      </div>
-    </div>
+
+    <action-page-top-title parTitle="新建数据加载规则"></action-page-top-title> 
 
     <div class="contentWrap">
 
       <div class="title">基础信息</div>
       <div class="detailContentWrap">
         <div class="contentItem">
-          <div class="subTitle">规则名称</div>
+          <div :class=" curType === 'detail' ? 'subTitle' : 'subTitle validateBeforeSign'">规则名称</div>
           <template v-if="curType === 'detail'">
             <div class="baseInputW75">{{curItem.ruleName}}</div>
           </template>
@@ -26,7 +19,7 @@
           </template>
         </div>
         <div class="contentItem">
-          <div class="subTitle">规则描述</div>
+          <div :class=" curType === 'detail' ? 'subTitle' : 'subTitle validateBeforeSign'">规则描述</div>
           <template v-if="curType === 'detail'">
             <div class="baseInputW75">{{curItem.decs}}</div>
           </template>
@@ -37,7 +30,7 @@
           </template>
         </div>
         <div class="contentItem">
-          <div class="subTitle">加载方式</div>
+          <div :class=" curType === 'detail' ? 'subTitle' : 'subTitle validateBeforeSign'">加载方式</div>
           <template v-if="curType === 'detail'">
             <div class="baseInputW75">{{curItem.loadWay}}</div>
           </template>
@@ -55,7 +48,7 @@
       <div class="title">数据库及加载数据</div>
       <div class="detailContentWrap">
         <div class="contentItem">
-          <div class="subTitle">数据库名称</div>
+          <div :class=" curType === 'detail' ? 'subTitle' : 'subTitle validateBeforeSign'">数据库名称</div>
           <template v-if="curType === 'detail'">
             <div class="baseInputW75">{{curItem.db}}</div>
           </template>
@@ -66,7 +59,7 @@
           </template>
         </div>
         <div class="contentItem">
-          <div class="subTitle">表名</div>
+          <div :class=" curType === 'detail' ? 'subTitle' : 'subTitle validateBeforeSign'">表名</div>
           <template v-if="curType === 'detail'">
             <div class="baseInputW75">{{curItem.tableName}}</div>
           </template>
@@ -82,7 +75,7 @@
           </template>
         </div>
         <div class="contentItem">
-          <div class="subTitle">数据名称</div>
+          <div :class=" curType === 'detail' ? 'subTitle' : 'subTitle validateBeforeSign'">数据名称</div>
           <template v-if="curType === 'detail'">
             <div class="baseInputW75">{{curItem.data}}</div>
           </template>
@@ -97,7 +90,7 @@
           </template>
         </div>
         <div class="contentItem">
-          <div class="subTitle">控制表名称</div>
+          <div :class=" curType === 'detail' ? 'subTitle' : 'subTitle validateBeforeSign'">控制表名称</div>
           <template v-if="curType === 'detail'">
             <div class="baseInputW75">{{curItem.control}}</div>
           </template>
@@ -126,7 +119,9 @@
 </template>
 
 <script>
+import actionPageTopTitle from './component/action_page_top_title'
 export default {
+  components: { actionPageTopTitle},
   data() {
     return {
       curType: '',
@@ -148,12 +143,12 @@ export default {
   created() {
     const { row, type, id } = this.$route.params
     console.log('row, type', row, type, id)
-    // if (type) {
+    if (type) {
       this.curType = type
-    // } else {
-    //   this.$router.push('/home/ruleMagt')
-    //   return false
-    // }
+    } else {
+      this.$router.push('/home/ruleMagt')
+      return false
+    }
     if (type === 'detail' || type === 'edit') {
       this.curItem = row
     } else if (type === 'add') {
@@ -189,8 +184,7 @@ export default {
     saveHandle() {
       this.$Message.success('保存成功')
       console.log(this.curItem)
-      this.$router.push({ name: 'ruleMagt', params: { row:this.curItem } })
-      // this.backRuleHandler()
+      this.backRuleHandler()
       // this.resetRowHandle(this.curItem)
     },
     selectChangeTableName(val) {
