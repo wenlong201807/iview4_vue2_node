@@ -1,7 +1,14 @@
 @import "./com_fn.less";
 .ruleMageWrap,
 .aptMageWrap,
+.taskMageWrap,
+.batchWindowWrap,
 .dbMageWrap {
+  position: relative;
+  min-width: 860px;
+  // min-height: calc(100vh - 160px);
+  background: #fff;
+
   .tableWrap {
     .tableHead {
       height: 35px;
@@ -31,12 +38,12 @@
     .tableAuthAction {
       cursor: pointer;
       color: #1890ff;
-      .BDATableActionFn // background: burlywood;;
+      .BDATableActionFn // background: burlywood;;;;
     }
     .tableDenyAction {
       color: #aaaaaa;
       cursor: default;
-      .BDATableActionFn // background: burlywood;;
+      .BDATableActionFn // background: burlywood;;;;
     }
   }
 
@@ -84,4 +91,7 @@
       }
     }
   }
+
+
+
 }

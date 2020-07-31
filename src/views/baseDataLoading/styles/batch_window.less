@@ -1,0 +1,189 @@
+@import "./table_com.less";
+@import "./com_fn.less";
+
+.batchWindowWrap {
+  .aptMT20 {
+    height: 20px;
+  }
+  .tableWrap {
+    .checkBoxCla {
+      box-sizing: border-box;
+      padding-left: 10px;
+      width: 50px;
+      // background: pink;
+    }
+    .orderCla {
+      width: 40px;
+      // background: yellowgreen;
+    }
+    .ruleNameCla {
+      min-width: 100px;
+      flex: 1;
+      // background: pink;
+    }
+    .decsCla {
+      min-width: 100px;
+      flex: 1;
+      // background: yellowgreen;
+    }
+    .loadWayCla {
+      width: 80px;
+      // background: pink;
+    }
+    .dbCla {
+      min-width: 100px;
+      flex: 1;
+      // background: yellowgreen;
+    }
+    .tableNameCla {
+      width: 80px;
+      // background: pink;
+    }
+    .dataCla {
+      min-width: 100px;
+      flex: 1;
+      // background: yellowgreen;
+    }
+    .controlCla {
+      width: 80px;
+      // background: pink;
+    }
+    .amendCla {
+      width: 80px;
+      // background: yellowgreen;
+    }
+    .amendTimeCla {
+      width: 100px;
+      // background: pink;
+    }
+
+    @actionW: 160px;
+    .actionHeadCla {
+      width: @actionW;
+    }
+    .actionBodyCla {
+      width: @actionW;
+    }
+    .ruleNameDetailCla {
+      color: #1890ff;
+      cursor: pointer;
+    }
+  }
+
+  .selfMask {
+    position: absolute;
+    z-index: 198;
+    // background: red;
+    top: 0;
+    left: 0;
+    // right: 0;
+    // bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(47, 79, 79);
+    opacity: 0.607843;
+  }
+
+  .modalHide {
+    display: none;
+  }
+
+  .modalShow {
+    display: block;
+    position: absolute;
+    top: 15%;
+    // bottom: 20%;
+    left: calc(50% - 400px);
+    // right:20%;
+    width: 800px;
+    // background: pink;
+    z-index: 200;
+    .actionHeadWrap {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 20px;
+      height: 40px;
+      line-height: 40px;
+      background: #fff;
+      .actionTitleCla {
+        font-family: "微软雅黑";
+        font-weight: 400;
+        font-style: normal;
+        font-size: 18px;
+      }
+      .actionIconCla {
+        font-size: 20px;
+        color: #2d8cf0;
+        cursor: pointer;
+      }
+    }
+    .actionBodyWrap {
+      box-sizing: border-box;
+      padding: 20px 30px;
+      height: 340px;
+      background: rgba(242, 242, 242, 0.996078431372549);
+      .actionContentWrap {
+        background: #fff;
+        padding-top: 25px;
+        margin-bottom: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: space-around;
+        background: #fff;
+        .actionContentCla {
+          box-sizing: border-box;
+          padding-left: 25px;
+          width: calc(50% - 1px);
+          padding-bottom: 25px;
+          // background: pink;
+          margin-left: 1px;
+          margin-bottom: 1px;
+        }
+      }
+    }
+
+    /// 可以抽离的部分
+    .subTitle {
+      margin-bottom: 5px;
+      font-family: "Microsoft Tai Le";
+      font-weight: 400;
+      font-style: normal;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.847058823529412);
+    }
+    .subTitleDesc {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #aaaaaa;
+    }
+    .validateBeforeSign {
+      position: relative;
+      padding-left: 13px;
+      &::before {
+        position: absolute;
+        content: "*";
+        top: 2px;
+        left: 2px;
+        color: red;
+        display: inline-block;
+      }
+    }
+    .validateCla {
+      color: red;
+      margin-left: 10px;
+    }
+    .baseInputW75 {
+      width: 75%;
+    }
+    .btnActionWrap {
+      width: 200px;
+      padding: 20px 0px;
+      // border: 1px solid #ccc;
+      margin: 0px auto;
+      display: flex;
+      justify-content: space-around;
+      background: rgba(242, 242, 242, 0.996078431372549);
+    }
+  }
+}
