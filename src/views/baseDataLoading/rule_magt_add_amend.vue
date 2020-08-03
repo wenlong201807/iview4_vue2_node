@@ -1,7 +1,7 @@
 <template>
-  <div class="ruleMagtAddAmendWrap">
+  <div class="BDLactionWrap ruleMagtAddAmendWrap">
 
-    <action-page-top-title parTitle="新建数据加载规则"></action-page-top-title> 
+    <action-page-top-title parTitle="新建数据加载规则"></action-page-top-title>
 
     <div class="contentWrap">
 
@@ -202,5 +202,6 @@ export default {
 }
 </script>
 <style  scoped lang="less">
-@import './styles/rule_magt_add_amend.less';
+@import './styles/actionCom.less';
+@import './styles/rule_action.less';
 </style>

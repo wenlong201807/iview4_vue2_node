@@ -1,29 +1,22 @@
-@import './table_com.less';
-@import './com_fn.less';
-@import './db_rule_com.less';
+@import "./table_com.less";
+@import "./com_fn.less";
+@import "./db_rule_com.less";
 
 .ruleMageWrap {
   min-width: 860px;
   background: #fff;
 
   .tableWrap {
-
-    .tablebodySpeciall {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      text-align: left;
-      padding-bottom: 5px;
-      border-bottom: 1px solid rgba(233, 233, 233, 1);
-      background: greenyellow;
-    }
-
     .checkBoxCla {
-      width: 40px;
+      box-sizing: border-box;
+      padding-left: 10px;
+      width: 50px;
       // background: pink;
     }
     .orderCla {
-      width: 40px;
+      box-sizing: border-box;
+      padding-left: 10px;
+      width: 50px;
       // background: yellowgreen;
     }
     .ruleNameCla {
@@ -32,7 +25,8 @@
       // background: pink;
     }
     .decsCla {
-      width: 80px;
+      min-width: 100px;
+      flex: 1;
       // background: yellowgreen;
     }
     .loadWayCla {
@@ -66,20 +60,16 @@
       // background: pink;
     }
 
-    @actionW:140px;
+    @actionW: 140px;
     .actionHeadCla {
       width: @actionW;
     }
     .actionBodyCla {
       width: @actionW;
-      .BDATableActionFn
     }
-
-
-    .ruleNameDetailCla{
+    .ruleNameDetailCla {
       color: #1890ff;
       cursor: pointer;
     }
   }
-
 }

@@ -1,0 +1,205 @@
+.taskActionWrap {
+  background: rgba(242, 242, 242, 0.996078431372549);
+  @successMsgBor: rgba(183, 235, 143, 1);
+  @warningMsgBor: rgba(255, 229, 143, 1);
+  @errorMsgBor: rgba(255, 163, 158, 1);
+  @successMsgBg: rgba(246, 255, 237, 1);
+  @warningMsgBg: rgba(255, 251, 230, 1);
+  @errorMsgBg: rgba(255, 241, 240, 1);
+
+  .bgBorCom(@bg,@bor) {
+    border: 1px solid @bor;
+    background: @bg;
+  }
+
+  .tipMsgWrap {
+    margin: 15px 42px 20px;
+    // border: 1px solid #ccc;
+    // background: pink;
+    border-radius: 5px;
+    padding: 15px 20px;
+    min-height: 90px;
+    display: flex;
+    justify-content: flex-start;
+    .imgWrap {
+      width: 40px;
+      // background: yellow;
+    }
+    .contentTipWrap {
+      box-sizing: border-box;
+      flex: 1;
+      padding: 5px 10px;
+      // background: yellowgreen;
+      .contentResult {
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.647058823529412);
+      }
+      .contentDetail {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.427450980392157);
+      }
+    }
+  }
+  .useSu {
+    .bgBorCom(@successMsgBg, @successMsgBor);
+  }
+  .useWa {
+    .bgBorCom(@warningMsgBg, @warningMsgBor);
+  }
+  .useEr {
+    .bgBorCom(@errorMsgBg, @errorMsgBor);
+  }
+  .taskMT15 {
+    margin-top: 30px;
+  }
+  .contentWrapTitle {
+    font-family: "Arial Normal", "Arial";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    letter-spacing: normal;
+    color: #333333;
+    margin-bottom: 10px;
+    margin-left: 42px;
+  }
+  .btnWrapMg {
+    margin: 5px 42px;
+  }
+
+  .detailTableWrapHide {
+    display: none;
+  }
+  .detailTableWrap {
+    margin: 5px 42px 20px;
+    background: #fff;
+    .detailTotalMsg {
+      box-sizing: border-box;
+      padding: 5px 20px;
+      height: 70px;
+      border-bottom: 1px solid rgba(242, 242, 242, 0.996078431372549);
+      display: flex;
+      justify-content: flex-start;
+      .msgLeftWrap {
+        // background: yellow;
+        flex: 1;
+        font-family: "微软雅黑";
+        font-weight: 400;
+        text-decoration: none;
+        .msgTitle {
+          color: rgba(0, 0, 0, 0.847058823529412);
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+        .msgTotal {
+          color: rgba(170, 170, 170, 0.847058823529412);
+          font-size: 12px;
+          // padding-bottom: 5px;
+          .eachMsg {
+            margin-right: 25px;
+            display: inline-block;
+            // padding-bottom: 2px;
+            font-family: '微软雅黑 Bold', '微软雅黑 Regular', '微软雅黑';
+    font-weight: 700;
+            .succ{
+              padding: 0px 2px;
+              color: rgba(112, 182, 3, 0.847058823529412);
+            }
+            .fail{
+              padding: 0px 2px;
+              color: rgba(217, 0, 27, 0.847058823529412);
+            }
+            .wor{
+              padding: 0px 2px;
+              color: rgba(245, 154, 35, 0.847058823529412);
+            }
+            .totalResult{
+              padding: 0px 2px;
+              color: rgba(0, 0, 0, 0.847058823529412);
+            }
+          }
+        }
+      }
+      .msgRightWrap {
+        // background: yellowgreen;
+        width: 70px;
+        font-family: "Arial Normal", "Arial";
+        font-weight: 400;
+        font-style: normal;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+    }
+    .detailTaskActionTableWrap {
+      // height: 100px;
+      padding: 5px 20px 15px;
+      overflow: hidden;
+
+      .checkBoxCla {
+        box-sizing: border-box;
+        padding-left: 10px;
+        width: 50px;
+        // background: pink;
+      }
+      .orderCla {
+        box-sizing: border-box;
+        padding-left: 10px;
+        width: 50px;
+        // background: yellowgreen;
+      }
+      .ruleNameCla {
+        min-width: 100px;
+        flex: 1;
+        // background: pink;
+      }
+      .decsCla {
+        min-width: 100px;
+        flex: 1;
+        // background: yellowgreen;
+      }
+      .loadWayCla {
+        width: 80px;
+        // background: pink;
+      }
+      .dbCla {
+        min-width: 100px;
+        flex: 1;
+        // background: yellowgreen;
+      }
+      .tableNameCla {
+        width: 80px;
+        // background: pink;
+      }
+      .dataCla {
+        min-width: 100px;
+        flex: 1;
+        // background: yellowgreen;
+      }
+      .controlCla {
+        width: 80px;
+        // background: pink;
+      }
+      .amendCla {
+        width: 80px;
+        // background: yellowgreen;
+      }
+      .amendTimeCla {
+        width: 100px;
+        // background: pink;
+      }
+
+      @actionW: 260px;
+      .actionHeadCla {
+        width: @actionW;
+      }
+      .actionBodyCla {
+        width: @actionW;
+      }
+      .ruleNameDetailCla {
+        color: #1890ff;
+        cursor: pointer;
+      }
+    }
+  }
+}

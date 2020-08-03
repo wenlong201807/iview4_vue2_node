@@ -199,6 +199,14 @@ export default new Router({
       component: () => import('@/views/baseDataLoading/rule_magt_add_amend'),
       meta: { title: '添加规则', other: 'a' }
     },
+    {
+      path: '/taskAction/:type/:id',
+      // path: '/ruleAddAmend/:type',
+      name: 'taskAction',
+      props:true,
+      component: () => import('@/views/baseDataLoading/task_action'),
+      meta: { title: '任务详情', other: 'a' }
+    },
     // 基础数据页面end
     {
       path: '/regist',

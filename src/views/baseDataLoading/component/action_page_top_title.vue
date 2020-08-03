@@ -1,11 +1,11 @@
 <template>
   <div class="BDLtopTitleWrap">
     <div class="topLeftCla">
-      <Icon @click="backRuleHandler" class="titleBack" type="ios-arrow-back" />
+      <Icon @click="backHandler" class="titleBack" type="ios-arrow-back" />
       <span class="titleContent">{{parTitle}}</span>
     </div>
     <div class="topRightCla">
-      <Icon @click="backRuleHandler" type="md-close" />
+      <Icon @click="backHandler" type="md-close" />
     </div>
   </div>
 </template>
@@ -23,7 +23,7 @@ export default {
     console.log('父组件传入的标题', this.parTitle)
   },
   methods: {
-    backRuleHandler() {
+    backHandler() {
       this.$router.go(-1)
     },
   },

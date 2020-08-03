@@ -58,11 +58,9 @@
       <Page :current="curPageNum" :total="totalPages" @on-change="changeCurPage" @on-page-size-change="changeCurSize" show-total show-elevator show-sizer />
     </div>
 
-
-     <template v-if="modalAction">
-       <div class="selfMask"  @click="ModalcloseHandler"></div>
-     </template>
-
+    <template v-if="modalAction">
+      <div class="selfMask" @click="ModalcloseHandler"></div>
+    </template>
 
     <div :class="modalAction ? 'modalShow' : 'modalHide'">
       <div class="actionHeadWrap">
@@ -71,8 +69,6 @@
           <Icon @click="ModalcloseHandler" class="actionIconCla" type="md-close" />
         </div>
       </div>
-
-
 
       <div class="actionBodyWrap">
         <div class="actionContentWrap">
@@ -337,15 +333,23 @@ export default {
       console.log(pageSize)
       this.getInitData()
     },
+    cancelHandle() {
+      this.$Message.warning('取消操作')
+      this.ModalcloseHandler()
+      // this.resetRowHandle(this.curItem)
+    },
+    saveHandle() {
+      this.$Message.success('保存成功')
+      this.ModalcloseHandler()
+      // console.log(this.curItem)
+      // this.resetRowHandle(this.curItem)
+    },
   },
 }
 </script>
 
 <style  scoped lang="less">
 @import './styles/batch_window.less';
-.bbb {
-  height: 300px;
-  background: pink;
-}
+
 </style>
 
