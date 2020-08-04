@@ -241,8 +241,8 @@ export default {
     },
     ediCopytHandler(row, type) {
       console.log(row, type)
-      this.$router.push({ path: `/taskAction/${type}/${row.id}` }) // 只能用 name
-      // this.$router.push({ name: 'ruleAddAmend', params: { row, type } }) // 只能用 name
+      this.$router.push({ path: `/taskAction/${type}/${row.id}` }) 
+
     },
 
     querySelChange(val) {

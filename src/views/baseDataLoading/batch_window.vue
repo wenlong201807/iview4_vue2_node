@@ -312,12 +312,11 @@ export default {
     },
     ediCopytHandler(row, type) {
       console.log(row, type)
-      this.$router.push({ name: 'ruleAddAmend', params: { row, type } }) // 只能用 name
+    
     },
     addRulHandler() {
       this.modalAction = true
-      // this.$router.push({ name: 'ruleAddAmend', params: { type: 'add' } }) // 只能用 name
-      // script 取参 this.$route.params.id
+
     },
     querySelChange(val) {
       console.log(val)

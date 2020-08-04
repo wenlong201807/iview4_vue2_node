@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import {dblMainRouter,dblActionRouter} from '@/views/baseDataLoading/utils/dbl_router'
 
 Vue.use(Router)
 
@@ -36,36 +37,37 @@ export default new Router({
           meta: { title: '表格练习', other: 'calculate' }
         },
         // 基础数据预约加载
-        {
-          path: 'ruleMagt',
-          name: 'ruleMagt',
-          component: () => import('@/views/baseDataLoading/rule_magt'),
-          meta: { title: '表格练习', other: 'table' }
-        },
-        {
-          path: 'dbMagt',
-          name: 'dbMagt',
-          component: () => import('@/views/baseDataLoading/db_magt'),
-          meta: { title: '表格练习', other: 'table' }
-        },
-        {
-          path: 'aptLoad',
-          name: 'aptLoad',
-          component: () => import('@/views/baseDataLoading/apt_load'),
-          meta: { title: '表格练习', other: 'table' }
-        },
-        {
-          path: 'taskMagt',
-          name: 'taskMagt',
-          component: () => import('@/views/baseDataLoading/task_magt'),
-          meta: { title: '表格练习', other: 'table' }
-        },
-        {
-          path: 'batchWindow',
-          name: 'batchWindow',
-          component: () => import('@/views/baseDataLoading/batch_window'),
-          meta: { title: '表格练习', other: 'table' }
-        },
+        ...dblMainRouter,
+        // {
+        //   path: 'ruleMagt',
+        //   name: 'ruleMagt',
+        //   component: () => import('@/views/baseDataLoading/rule_magt'),
+        //   meta: { title: '表格练习', other: 'table' }
+        // },
+        // {
+        //   path: 'dbMagt',
+        //   name: 'dbMagt',
+        //   component: () => import('@/views/baseDataLoading/db_magt'),
+        //   meta: { title: '表格练习', other: 'table' }
+        // },
+        // {
+        //   path: 'aptLoad',
+        //   name: 'aptLoad',
+        //   component: () => import('@/views/baseDataLoading/apt_load'),
+        //   meta: { title: '表格练习', other: 'table' }
+        // },
+        // {
+        //   path: 'taskMagt',
+        //   name: 'taskMagt',
+        //   component: () => import('@/views/baseDataLoading/task_magt'),
+        //   meta: { title: '表格练习', other: 'table' }
+        // },
+        // {
+        //   path: 'batchWindow',
+        //   name: 'batchWindow',
+        //   component: () => import('@/views/baseDataLoading/batch_window'),
+        //   meta: { title: '表格练习', other: 'table' }
+        // },
         // 基础数据预约加载***待完善
         // {
         //   path: 'baseDB',
@@ -190,23 +192,36 @@ export default new Router({
       ]
     },
     // 基础数据页面start
+    ...dblActionRouter,
 
-    {
-      path: '/ruleAddAmend',
-      // path: '/ruleAddAmend/:type',
-      name: 'ruleAddAmend',
-      props:true,
-      component: () => import('@/views/baseDataLoading/rule_magt_add_amend'),
-      meta: { title: '添加规则', other: 'a' }
-    },
-    {
-      path: '/taskAction/:type/:id',
-      // path: '/ruleAddAmend/:type',
-      name: 'taskAction',
-      props:true,
-      component: () => import('@/views/baseDataLoading/task_action'),
-      meta: { title: '任务详情', other: 'a' }
-    },
+    // {
+    //   path: '/ruleAction/:type/:id',
+    //   name: 'ruleAction',
+    //   props:true,
+    //   component: () => import('@/views/baseDataLoading/rule_action'),
+    //   meta: { title: '添加规则', other: 'a' }
+    // },
+    // {
+    //   path: '/taskAction/:type/:id',
+    //   name: 'taskAction',
+    //   props:true,
+    //   component: () => import('@/views/baseDataLoading/task_action'),
+    //   meta: { title: '任务详情', other: 'a' }
+    // },
+    // {
+    //   path: '/aptAction/:type/:id',
+    //   name: 'aptAction',
+    //   props:true,
+    //   component: () => import('@/views/baseDataLoading/apt_action'),
+    //   meta: { title: '预约详情', other: 'apt_action' }
+    // },
+    // {
+    //   path: '/dbAction/:type/:id',
+    //   name: 'dbAction',
+    //   props:true,
+    //   component: () => import('@/views/baseDataLoading/db_action'),
+    //   meta: { title: '数据库详情', other: 'db_action' }
+    // },
     // 基础数据页面end
     {
       path: '/regist',

@@ -9,7 +9,7 @@
     </div>
     <div class="btnRowCla">
       <div class="btnRowleft">
-        <Button type="primary" class="btnR20" @click="addRulHandler">
+        <Button type="primary" class="btnR20" @click="addRulHandler(0,'add')">
           <Icon class="iconBRM" type="md-add" />新增规则</Button>
         <Button type="error" class="btnR20" @click="delHadler">删除</Button>
         <Button @click="exportHandler" type="primary" class="btnR20">
@@ -241,11 +241,10 @@ export default {
     },
     ediCopytHandler(row, type) {
       console.log(row, type)
-      this.$router.push({ name: 'ruleAddAmend', params: { row, type } }) // 只能用 name
+      this.$router.push({ path: `/ruleAction/${type}/${row.id}`})
     },
-    addRulHandler() {
-      this.$router.push({ name: 'ruleAddAmend', params: { type: 'add' } }) // 只能用 name
-      // script 取参 this.$route.params.id
+    addRulHandler(id,type) {
+      this.$router.push({ path: `/ruleAction/${type}/${id}`})
     },
     querySelChange(val) {
       console.log(val)

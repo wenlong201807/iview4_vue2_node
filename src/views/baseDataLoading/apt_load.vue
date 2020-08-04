@@ -1,10 +1,10 @@
 <template>
   <div class="aptMageWrap">
     <Docs></Docs>
-<div class="aptMT20"></div>
+    <div class="aptMT20"></div>
     <div class="btnRowCla">
       <div class="btnRowleft">
-        <Button type="primary" class="btnR20" @click="addRulHandler">
+        <Button type="primary" class="btnR20" @click="addRulHandler(0,'add')">
           <Icon class="iconBRM" type="md-add" />新增规则</Button>
 
       </div>
@@ -226,10 +226,11 @@ export default {
     },
     ediCopytHandler(row, type) {
       console.log(row, type)
-      this.$router.push({ name: 'ruleAddAmend', params: { row, type } }) // 只能用 name
+      this.$router.push({ path: `/aptAction/${type}/${row.id}` })
+    
     },
-    addRulHandler() {
-      this.$router.push({ name: 'ruleAddAmend', params: { type: 'add' } }) // 只能用 name
+    addRulHandler(id, type) {
+      this.$router.push({ path: `/aptAction/${type}/${id}` })
       // script 取参 this.$route.params.id
     },
     querySelChange(val) {
