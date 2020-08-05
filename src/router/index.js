@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import {dblMainRouter,dblActionRouter} from '@/views/baseDataLoading/utils/dbl_router'
+import { dblMainRouter, dblActionRouter } from '@/views/base_data_loading/utils/dbl_router'
 
 Vue.use(Router)
 

@@ -63,7 +63,7 @@
               <Option value="sqlldr">sqlldr</Option>
               <Option value="sqlldr2">sqlldr2</Option>
               <Option value="sqlldr3">sqlldr3</Option>
-              <Option value=""> <a href="https://www.cnblogs.com/PHP0222wangdong/p/11646113.html" target="_blank" >预约加载页面</a> </Option>
+              <Option value=""> <a href="https://www.cnblogs.com/PHP0222wangdong/p/11646113.html" target="_blank">预约加载页面</a> </Option>
               <!-- <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option> -->
             </Select>
           </div>
@@ -71,7 +71,9 @@
           <div class="loadWayCla onlyBody">{{item.loadWay}}</div>
           <div class="dbCla onlyBody">{{item.db}}</div>
           <div class="dbActionCla ">
-            <div class="delCla">x</div>
+            <div class="delCla" @click="delTableHandler(item)">
+              <Icon type="md-close" />
+            </div>
             <template v-if="item.id === modalTableData[modalTableData.length-1].id">
               <div class="addOneCla">+ 添加</div>
             </template>
@@ -162,6 +164,9 @@ export default {
     }
   },
   methods: {
+    delTableHandler(row) {
+      console.log('del...row', row)
+    },
     selectTableChange(val, key, row) {
       console.log('=====', val, key, row)
     },
