@@ -1,0 +1,106 @@
+.longModalBodyWrap {
+  .longTitle {
+    box-sizing: border-box;
+    height: 50px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #fff;
+    .flexItemDbTitle {
+      width: 50%;
+    }
+    .flexItem {
+      width: 25%;
+    }
+    .title {
+      margin-right: 15px;
+      font-family: "Microsoft Tai Le";
+      font-weight: 400;
+      font-style: normal;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.847058823529412);
+    }
+    .content {
+      font-family: "Microsoft Tai Le";
+      font-weight: 400;
+      font-style: normal;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.247058823529412);
+    }
+  }
+  .longContentWrap {
+    border: 1px solid rgba(233, 233, 233, 1);
+    @cellH: 35px;
+    @headH: 40px;
+    .tableHeadModal {
+      height: @headH;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+      // margin-bottom: 10px;
+      font-family: "微软雅黑";
+      font-weight: 400;
+      font-style: normal;
+      font-size: 14px;
+      color: #000000;
+      // background: rgba(242, 242, 242, 0.501960784313725);
+      background: #c9e9f8;
+    }
+    .tablebodyModal {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+      // padding-bottom: 5px;
+      border-bottom: 1px solid rgba(233, 233, 233, 1);
+      &:last-child {
+        border: none;
+      }
+    }
+
+    .onlyHead {
+      height: @headH;
+      line-height: @headH;
+    }
+    .onlyBody {
+      height: @cellH;
+      line-height: @cellH;
+    }
+
+    .orderCla {
+      width: 50px;
+      // background: yellowgreen;
+    }
+    .ruleNameCla {
+      min-width: 100px;
+      flex: 1;
+      // background: pink;
+    }
+    .decsCla {
+      width: 80px;
+      // background: yellowgreen;
+    }
+    .loadWayCla {
+      width: 80px;
+      // background: pink;
+    }
+    .dbCla {
+      width: 150px;
+      // .BDAMultLineFn // background: yellowgreen;;;;;;
+    }
+    .borderR {
+      border-right: 1px solid rgba(233, 233, 233, 1);
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+  .longCloseCla {
+    margin: 20px auto 20px;
+    width: 60px;
+    text-align: center;
+  }
+}

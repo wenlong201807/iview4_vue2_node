@@ -121,7 +121,7 @@
 <script>
 import actionPageTopTitle from './component/action_page_top_title'
 export default {
-  components: { actionPageTopTitle},
+  components: { actionPageTopTitle },
   data() {
     return {
       curType: '',
@@ -141,23 +141,20 @@ export default {
     }
   },
   created() {
-    const { row, type, id } = this.$route.params
-    console.log('row, type', row, type, id)
-    if (type) {
-      this.curType = type
-    } else {
-      this.$router.push('/home/ruleMagt')
-      return false
-    }
+    const { type, id } = this.$route.params
+    console.log('id, type', type, id)
+
+    this.curType = type
+
     if (type === 'detail' || type === 'edit') {
-      this.curItem = row
+      this.curItem =  this.curItem
     } else if (type === 'add') {
       this.resetRowHandle(this.curItem)
       this.curItem.loadWay = 'sqlldr'
     } else {
       // copy
-      console.log(row, type)
-      this.curItem = row
+      console.log( type)
+      this.curItem =  this.curItem
       this.curItem.ruleName = ''
       this.curItem.decs = ''
     }
@@ -202,6 +199,6 @@ export default {
 }
 </script>
 <style  scoped lang="less">
-@import './styles/actionCom.less';
+@import './styles/action_com.less';
 @import './styles/rule_action.less';
 </style>

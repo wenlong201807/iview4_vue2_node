@@ -1,0 +1,124 @@
+.dbMagtActionWrap {
+  .dbTableWrap {
+    padding: 10px 25px 20px;
+    background: #fff;
+  }
+  @cellH: 35px;
+  @headH: 40px;
+  .tableHeadModal {
+    height: @headH;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    // text-align: left;
+    // margin-bottom: 10px;
+    font-family: "微软雅黑";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    color: #000000;
+    // background: rgba(242, 242, 242, 0.501960784313725);
+    // background: #c9e9f8;
+  }
+  .tablebodyModal {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    // text-align: left;
+    margin-top: 5px;
+    // padding-bottom: 5px;
+    // border-bottom: 1px solid rgba(233, 233, 233, 1);
+    // &:last-child {
+    //   border: none;
+    // }
+  }
+
+  .onlyHead {
+    height: @headH;
+    line-height: @headH;
+  }
+  .onlyBody {
+    height: @cellH;
+    line-height: @cellH;
+  }
+
+  .orderCla {
+    width: 50px;
+    // background: yellowgreen;
+  }
+  .ruleNameCla {
+    box-sizing: border-box;
+    padding-right: 20px;
+    min-width: 130px;
+    flex: 1;
+    // background: pink;
+  }
+  .decsCla {
+    width: 130px;
+    // background: yellowgreen;
+  }
+  .loadWayCla {
+    width: 130px;
+    // background: pink;
+  }
+  .dbCla {
+    width: 110px;
+    // .BDAMultLineFn // background: yellowgreen;;;;;;
+  }
+  .dbActionCla {
+    width: 150px;
+    // background: pink;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .delCla {
+      box-sizing: border-box;
+      // display: inline-block;
+      font-family: "Arial Normal", "Arial";
+      font-weight: 400;
+      font-style: normal;
+      font-size: 16px;
+      letter-spacing: normal;
+      color: #333333;
+      margin: 4px 3px;
+      padding: 0px 15px 0px;
+      // margin-right: 10px;
+      // background: yellow;
+      cursor: pointer;
+    }
+    .addOneCla {
+      box-sizing: border-box;
+      // display: none;
+      font-family: "Microsoft Tai Le";
+      font-weight: 400;
+      font-style: normal;
+      font-size: 14px;
+      // background: yellowgreen;
+      color: #1890ff;
+      border: 1px dashed #1890ff;
+      cursor: pointer;
+      // margin: 4px 3px;
+      padding: 4px 15px 2px;
+      border-radius: 3px;
+      // &:last-child{
+      //   display: block;
+      //   color: red;
+      // }
+    }
+    .noneWord{
+      box-sizing: border-box;
+      // display: none;
+      font-family: "Microsoft Tai Le";
+      font-weight: 400;
+      font-style: normal;
+      font-size: 14px;
+      // background: yellowgreen;
+      color: #fff;
+      border: 1px dashed #fff;
+      // cursor: pointer;
+      // margin: 4px 3px;
+      padding: 4px 15px 2px;
+      border-radius: 3px;
+    }
+  }
+}

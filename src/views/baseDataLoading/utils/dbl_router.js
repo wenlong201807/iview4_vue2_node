@@ -4,7 +4,7 @@ const dblActionRouter = [
     name: 'ruleAction',
     props:true,
     component: () => import('@/views/baseDataLoading/rule_action'),
-    meta: { title: '添加规则', other: 'a' }
+    meta: { title: '规则详情', other: 'a' }
   },
   {
     path: '/taskAction/:type/:id',

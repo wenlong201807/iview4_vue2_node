@@ -82,6 +82,10 @@ import { debounceCom, testCom } from './utils/com_fn'
 import Docs from './component/docs'
 import downloadIconUrl from './imgs/dwonloadIcon.png'
 import changeIconUrl from './imgs/changeIcon.png'
+import {
+  checkBoxAllGlobal,
+  changeItemCheckBoxGlobal,
+} from './utils/com_checkBox'
 export default {
   components: { Docs },
   data() {
@@ -206,45 +210,80 @@ export default {
         this.$Message.warning('请填写完整查询条件')
       }
     },
-    changeItemCheckBox(id, isChecked) {
-      console.log(id, isChecked)
-      if (isChecked) {
-        this.checkedArr.push(id)
-      } else {
-        let index = this.checkedArr.findIndex(ind => ind === id)
-        index > -1 && this.checkedArr.splice(index, 1)
-      }
-      let tableLen = this.tableData.length
-      let checkedArrLen = this.checkedArr.length
-      this.checkAll = checkedArrLen === tableLen
-      this.indeterminate = this.checkAll ? false : checkedArrLen !== 0
+    changeItemCheckBox(id, curIsChecked) {
+      // console.log(id, isChecked)
+      // if (isChecked) {
+      //   this.checkedArr.push(id)
+      // } else {
+      //   let index = this.checkedArr.findIndex(ind => ind === id)
+      //   index > -1 && this.checkedArr.splice(index, 1)
+      // }
+      // let tableLen = this.tableData.length
+      // let checkedArrLen = this.checkedArr.length
+      // this.checkAll = checkedArrLen === tableLen
+      // this.indeterminate = this.checkAll ? false : checkedArrLen !== 0
+
+      const {
+        parentIsExistChecked,
+        parentIsCheckAll,
+        checkedArr,
+        currentDataArr,
+      } = changeItemCheckBoxGlobal(
+        id,
+        curIsChecked,
+        this.indeterminate,
+        this.checkAll,
+        this.checkedArr,
+        this.tableData
+      )
+      this.indeterminate = parentIsExistChecked
+      this.checkAll = parentIsCheckAll
+      this.checkedArr = checkedArr
+      this.tableData = currentDataArr
     },
     handleCheckAll() {
-      if (this.indeterminate) {
-        this.checkAll = false
-      } else {
-        this.checkAll = !this.checkAll
-      }
-      this.indeterminate = false
+      // if (this.indeterminate) {
+      //   this.checkAll = false
+      // } else {
+      //   this.checkAll = !this.checkAll
+      // }
+      // this.indeterminate = false
 
-      if (this.checkAll) {
-        this.tableData.forEach(item => {
-          item.isChecked = true
-          this.checkedArr.push(item.id)
-        })
-      } else {
-        this.checkedArr = []
-        this.tableData.forEach(item => {
-          item.isChecked = false
-        })
-      }
+      // if (this.checkAll) {
+      //   this.tableData.forEach(item => {
+      //     item.isChecked = true
+      //     this.checkedArr.push(item.id)
+      //   })
+      // } else {
+      //   this.checkedArr = []
+      //   this.tableData.forEach(item => {
+      //     item.isChecked = false
+      //   })
+      // }
+
+      const {
+        isExistChecked,
+        isCheckAll,
+        checkedArr,
+        currentDataArr,
+      } = checkBoxAllGlobal(
+        this.indeterminate,
+        this.checkAll,
+        this.checkedArr,
+        this.tableData
+      )
+
+      this.indeterminate = isExistChecked
+      this.checkAll = isCheckAll
+      this.checkedArr = checkedArr
+      this.tableData = currentDataArr
     },
     ediCopytHandler(row, type) {
       console.log(row, type)
-      this.$router.push({ path: `/ruleAction/${type}/${row.id}`})
+      this.$router.push({ path: `/ruleAction/${type}/${row.id}` })
     },
-    addRulHandler(id,type) {
-      this.$router.push({ path: `/ruleAction/${type}/${id}`})
+    addRulHandler(id, type) {
+      this.$router.push({ path: `/ruleAction/${type}/${id}` })
     },
     querySelChange(val) {
       console.log(val)

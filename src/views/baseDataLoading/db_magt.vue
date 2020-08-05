@@ -60,7 +60,7 @@
           <span class="tableAuthAction" @click="ediCopytHandler(item,'detail')">详情</span>
           <span class="tableAuthAction" @click="ediCopytHandler(item,'edit')">编辑</span>
           <span class="tableAuthAction" @click="ediCopytHandler(item,'copy')">密码设置</span>
-          <span class="tableAuthAction" @click="ediCopytHandler(item,'copy')">密码连接</span>
+          <span class="tableAuthAction" @click="connectTestHandler(item)">链接测试</span>
         </div>
       </div>
     </div>
@@ -68,18 +68,55 @@
       <Page :current="curPageNum" :total="totalPages" @on-change="changeCurPage" @on-page-size-change="changeCurSize" show-total show-elevator show-sizer />
     </div>
 
+    <LongModal :parentModalIsOpen="modalAction" parentModalTitle="数据库连接测试" @closeLongModal="pageCloseLongModalHandler">
+      <div slot="longModalBody" class="longModalBodyWrap">
+
+        <div class="longTitle">
+          <div class="flexItemDbTitle"> <span class="title">数据库名称</span> <span class="content">客户信息数据库</span></div>
+          <div class="flexItem"> <span class="title">云类型</span> <span class="content">公有云</span></div>
+          <div class="flexItem"> <span class="title">流水线环境</span> <span class="content">PL2</span></div>
+        </div>
+        <div class="longContentWrap">
+
+          <div class="tableHeadModal">
+            <div class="orderCla onlyHead borderR">序号</div>
+            <div class="ruleNameCla onlyHead borderR">数据库连接串</div>
+            <div class="decsCla onlyHead borderR">用户名</div>
+            <div class="loadWayCla onlyHead borderR">密码</div>
+            <div class="dbCla onlyHead borderR">连接测试结果</div>
+          </div>
+
+          <div class="tablebodyModal" v-for="(item,index) in modalTableData" :key="item.id">
+            <div class="orderCla onlyBody borderR">{{item.id}}</div>
+            <div class="ruleNameCla onlyBody borderR">{{item.ruleName}}</div>
+            <div class="decsCla onlyBody borderR">{{item.decs}}</div>
+            <div class="loadWayCla onlyBody borderR">{{item.loadWay}}</div>
+            <div class="dbCla onlyBody borderR">{{item.db}}</div>
+          </div>
+
+        </div>
+        <div class="longCloseCla">
+          <Button @click="closeContectHandler" type="primary">
+            取消</Button>
+        </div>
+
+      </div>
+    </LongModal>
+
   </div>
 </template>
 
 <script>
 import { debounceCom, testCom } from './utils/com_fn'
 import Docs from './component/docs'
+import LongModal from './component/long_modal'
 import downloadIconUrl from './imgs/dwonloadIcon.png'
 import changeIconUrl from './imgs/changeIcon.png'
 export default {
-  components: { Docs },
+  components: { Docs, LongModal },
   data() {
     return {
+      modalAction: false,
       changeTitle: '物理子系统名称 N-IMAN',
       checkedArr: [],
       checkAll: false,
@@ -102,6 +139,29 @@ export default {
         },
       ],
       querySelVal: 'db1',
+      modalTableData: [
+        {
+          id: 1,
+          ruleName: 'user_info1',
+          decs: '标准区1',
+          loadWay: 'sqlldr',
+          db: 'success1',
+        },
+        {
+          id: 2,
+          ruleName: 'user_info1',
+          decs: '标准区1',
+          loadWay: 'sqlldr',
+          db: 'error2',
+        },
+        {
+          id: 3,
+          ruleName: 'user_info1',
+          decs: '标准区1',
+          loadWay: 'sqlldr',
+          db: 'success3',
+        },
+      ],
       tableData: [
         {
           id: 1,
@@ -142,7 +202,6 @@ export default {
           amend: 'XXXX3333',
           amendTime: '2020-07-01 12:09:113333',
         },
-
       ],
     }
   },
@@ -150,6 +209,15 @@ export default {
     this.getInitData()
   },
   methods: {
+    closeContectHandler() {
+      this.modalAction = false
+    },
+    connectTestHandler(row) {
+      this.modalAction = true
+    },
+    pageCloseLongModalHandler(closeChildModal) {
+      this.modalAction = closeChildModal
+    },
     inportHandler() {
       this.$Message.info('导入待定。。')
     },
@@ -230,10 +298,10 @@ export default {
     },
     ediCopytHandler(row, type) {
       console.log(row, type)
-     this.$router.push({ path: `/dbAction/${type}/${row.id}` })
+      this.$router.push({ path: `/dbAction/${type}/${row.id}` })
     },
-    addRulHandler(id,type) {
-     this.$router.push({ path: `/dbAction/${type}/${row.id}` })
+    addRulHandler(id, type) {
+      this.$router.push({ path: `/dbAction/${type}/${id}` })
     },
     querySelChange(val) {
       console.log(val)
@@ -255,4 +323,5 @@ export default {
 
 <style  scoped lang="less">
 @import './styles/db_magt.less';
+@import './styles/db_magt_modal.less';
 </style>

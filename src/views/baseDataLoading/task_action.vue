@@ -350,7 +350,7 @@ export default {
     ediCopytHandler(row, type) {
       console.log(row, type)
       // this.$router.push({ path: `/taskAction/${type}/${row.id}` }) // 只能用 name
-    
+
     },
     changeCurPage(pageNum) {
       console.log(pageNum)
@@ -452,5 +452,5 @@ export default {
 <style  scoped lang="less">
 @import './styles/table_com.less';
 @import './styles/task_action.less';
-@import './styles/actionCom.less';
+@import './styles/action_com.less';
 </style>

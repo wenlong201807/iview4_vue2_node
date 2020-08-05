@@ -58,19 +58,8 @@
       <Page :current="curPageNum" :total="totalPages" @on-change="changeCurPage" @on-page-size-change="changeCurSize" show-total show-elevator show-sizer />
     </div>
 
-    <template v-if="modalAction">
-      <div class="selfMask" @click="ModalcloseHandler"></div>
-    </template>
-
-    <div :class="modalAction ? 'modalShow' : 'modalHide'">
-      <div class="actionHeadWrap">
-        <div class="actionTitleCla">添加串口</div>
-        <div>
-          <Icon @click="ModalcloseHandler" class="actionIconCla" type="md-close" />
-        </div>
-      </div>
-
-      <div class="actionBodyWrap">
+    <LongModal :parentModalIsOpen="modalAction" parentModalTitle="添加批次窗口标题" @closeLongModal="pageCloseLongModalHandler">
+      <div slot="longModalBody" class="actionValidateCom">
         <div class="actionContentWrap">
           <div class="actionContentCla">
             <div :class=" curType === 'detail' ? 'subTitle' : 'subTitle validateBeforeSign'">数据批次</div>
@@ -124,19 +113,18 @@
         </div>
 
       </div>
-
-    </div>
-
+    </LongModal>
   </div>
 </template>
 
 <script>
 import { debounceCom, testCom } from './utils/com_fn'
 import Docs from './component/docs'
+import LongModal from './component/long_modal'
 import downloadIconUrl from './imgs/dwonloadIcon.png'
 import changeIconUrl from './imgs/changeIcon.png'
 export default {
-  components: { Docs },
+  components: { Docs, LongModal },
   data() {
     return {
       curType: 'detaila',
@@ -222,7 +210,21 @@ export default {
   created() {
     this.getInitData()
   },
+  // mounted() {
+  //   this.$nextTick(function () {
+  //     this.$on('childModalControlBol', function () {
+  //       console.log('我是子组件方法')
+  //       this.modalAction = false
+  //     })
+  //   })
+  // },
   methods: {
+    addRulHandlertest() {
+      this.modalAction = true
+    },
+    pageCloseLongModalHandler(closeChildModal) {
+      this.modalAction = closeChildModal
+    },
     ModalcloseHandler() {
       this.modalAction = false
     },
@@ -312,11 +314,9 @@ export default {
     },
     ediCopytHandler(row, type) {
       console.log(row, type)
-    
     },
     addRulHandler() {
       this.modalAction = true
-
     },
     querySelChange(val) {
       console.log(val)
@@ -335,11 +335,13 @@ export default {
     cancelHandle() {
       this.$Message.warning('取消操作')
       this.ModalcloseHandler()
+      this.modalAction = false
       // this.resetRowHandle(this.curItem)
     },
     saveHandle() {
       this.$Message.success('保存成功')
       this.ModalcloseHandler()
+      this.modalAction = false
       // console.log(this.curItem)
       // this.resetRowHandle(this.curItem)
     },
@@ -348,7 +350,7 @@ export default {
 </script>
 
 <style  scoped lang="less">
+@import './styles/action_validate_com.less';
 @import './styles/batch_window.less';
-
 </style>
 
