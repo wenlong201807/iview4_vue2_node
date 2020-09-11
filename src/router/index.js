@@ -25,6 +25,13 @@ export default new Router({
           meta: { title: '主页', other: 'main' }
         },
         {
+          path: 'mdTest',
+          name: 'mdTest',
+          component: () => import('@/views/mds/mdTest'),
+          meta: { title: 'md文档说明', other: 'mdTest' }
+        },
+
+        {
           path: 'table',
           name: 'table',
           component: () => import('@/views/prod/table'),

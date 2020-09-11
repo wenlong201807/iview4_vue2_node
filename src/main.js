@@ -4,8 +4,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import App from './App'
 import router from './router'
-import iView from 'iview'
+// import iView from 'iview'
+import ViewUI from 'view-design';
 import 'iview/dist/styles/iview.css'
+
+// 自定义iview-design主题
+// import './libs/styles/long_theme/index.less';
 // import
 import axios from 'axios'
 import echarts from 'echarts'
@@ -26,8 +30,11 @@ Vue.prototype.$axios = axios
 Vue.prototype.$echarts = echarts
 
 Vue.use(Vuex)
-Vue.use(iView)
+Vue.use(ViewUI)
 Vue.config.productionTip = false
+
+// md文件的
+import 'prismjs/themes/prism.css';
 
 Vue.directive('highlight', function (el) {
   let blocks = el.querySelectorAll('pre code')

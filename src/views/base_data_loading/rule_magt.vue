@@ -1,6 +1,64 @@
 <template>
   <div class="ruleMageWrap">
     <Docs></Docs>
+
+    <div class="notice_query_all_wrap">
+      <div class="notice_sel_inp_query_warp">
+        <div class="each_group_wrap">
+          <span class="title_sel_input_cla">组件</span>
+          <Select @on-change="querySelChange" v-model="querySelVal" placeholder="数据库" class="sel_input_cla">
+            <Option v-for="item in querySelList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+          </Select>
+        </div>
+        <div class="each_group_wrap_specall">
+          <span class="title_sel_input_cla">测试环境</span>
+          <Select @on-change="querySelChange" v-model="querySelVal" placeholder="数据库" class="sel_input_cla">
+            <Option v-for="item in querySelList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+          </Select>
+          <Button @click="queryTableHandle" type="primary" class="query_one_line_cla">查询</Button>
+          <Button @click="queryTableHandle" class="">清空</Button>
+        </div>
+        <div class="each_group_wrap">
+
+        </div>
+        <div class="each_group_wrap">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="notice_query_all_wrap">
+      <div class="notice_sel_inp_query_warp">
+        <div class="each_group_wrap">
+          <span class="title_sel_input_cla">渠道</span>
+          <Select @on-change="querySelChange" v-model="querySelVal" placeholder="数据库" class="sel_input_cla">
+            <Option v-for="item in querySelList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+          </Select>
+        </div>
+        <div class="each_group_wrap">
+          <span class="title_sel_input_cla">测试所需的设备</span>
+          <Select @on-change="querySelChange" v-model="querySelVal" placeholder="数据库" class="sel_input_cla">
+            <Option v-for="item in querySelList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+          </Select>
+        </div>
+        <div class="each_group_wrap">
+          <span class="title_sel_input_cla">责任中心</span>
+          <Input v-model="queryVal" placeholder="请输入数据库" class="sel_input_cla" />
+
+        </div>
+        <div class="each_group_wrap">
+          <span class="title_sel_input_cla">测试环境</span>
+          <Input v-model="queryVal" placeholder="请输入数据库" class="sel_input_cla" />
+        </div>
+      </div>
+
+      <div class="query_mutil_line_btn_wrap">
+        <Button @click="queryTableHandle" type="primary" class="query_mult_line_btn_cla">查询</Button>
+        <Button @click="queryTableHandle" class="">清空</Button>
+      </div>
+      <div class="duode"></div>
+    </div>
+
     <div class="titleWrap">
       <span class="title">{{changeTitle}}</span>
       <span class="changeCla"><img :src="changeIconUrl" class="" alt="icon" srcset=""></span>
@@ -10,7 +68,8 @@
     <div class="btnRowCla">
       <div class="btnRowleft">
         <Button type="primary" class="btnR20" @click="addRulHandler(0,'add')">
-          <Icon class="iconBRM" type="md-add" />新增规则</Button>
+          <Icon class="iconBRM" type="md-add" />新增规则
+        </Button>
         <Button type="error" class="btnR20" @click="delHadler">删除</Button>
         <Button @click="exportHandler" type="primary" class="btnR20">
           导入</Button>

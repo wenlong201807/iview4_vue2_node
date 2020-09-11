@@ -53,7 +53,7 @@
         <Submenu name="1-4">
           <template slot="title">
             <Icon type="ios-people" />
-            echarts
+            echarts测试使用
           </template>
           <MenuItem to="/home/bar_ring" name="4-1">柱状图和环形</MenuItem>
           <MenuItem to="/home/shanxing" name="4-2">扇形图</MenuItem>
@@ -76,6 +76,15 @@
           <MenuItem to="/home/aptLoad" name="5-3">预约加载</MenuItem>
           <MenuItem to="/home/taskMagt" name="5-4">任务管理</MenuItem>
           <MenuItem to="/home/batchWindow" name="5-5">批次窗口</MenuItem>
+        </Submenu>
+        <Submenu name="1-6">
+          <template slot="title">
+            <Icon type="ios-people" />
+            使用文档说明范例
+          </template>
+          <MenuItem to="/home/mdTest" name="6-1">文档使用说明(引入)</MenuItem>
+          <MenuItem to="/home/fsMd" name="6-2">文档使用说明(导入)</MenuItem>
+
         </Submenu>
       </Menu>
     </div>
@@ -114,7 +123,7 @@ export default {
 @import '../libs/styles/frame.less';
 .loginOutCla {
   float: right;
-  margin-right: 8px;
+  margin-right: 8px; 
   margin-top: 3px;
 }
 

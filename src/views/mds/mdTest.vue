@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h2>找不到页面</h2>
+    <h2>testMd.VUE</h2>
     <test-md></test-md>
   </div>
 </template>
 
 <script>
-import testMd from './mds/test.md'
+import testMd from './test.md'
 export default {
   components: { testMd },
 }
